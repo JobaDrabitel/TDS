@@ -6,9 +6,9 @@ public class FOV : MonoBehaviour
 {
     private void Start()
     {
-        float fov = 90f;
+        float fov = 120f;
         Vector3 origin = Vector3.zero;
-        int rayCount = 2;
+        int rayCount = 50;
         float angle = 0f;
         float angleIncrease = fov / rayCount;
         float viewDistance = 50f;
@@ -30,7 +30,12 @@ public class FOV : MonoBehaviour
         int vertexIndex = 1;
         for (int i = 0; i < rayCount; i++)
         {
-            Vector3 vertex = origin + AngleToVector(angle) * viewDistance;
+            Vector3 vertex;
+            RaycastHit2D raycast = Physics2D.Raycast(origin, AngleToVector(angle), viewDistance);
+            if (raycast.collider == null)
+                vertex = origin + AngleToVector(angle) * viewDistance;
+            else
+                vertex = raycast.point;
             vertices[vertexIndex] = vertex;
             if (i > 0)
             {

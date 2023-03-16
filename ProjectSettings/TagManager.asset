@@ -7,11 +7,12 @@ TagManager:
   - Bullet
   - Obstacle
   - Enemy
+  - Sound
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obstacle
   - Water
   - UI
   - 
