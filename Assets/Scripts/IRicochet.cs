@@ -1,0 +1,4 @@
+interface IRicochet
+{
+    void Ricochet();
+}

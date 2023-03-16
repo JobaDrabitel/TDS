@@ -1,0 +1,4 @@
+interface IMeleeAttack
+{
+    void Attack();
+}
