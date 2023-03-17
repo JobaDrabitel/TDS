@@ -31,8 +31,6 @@ public class Player : Unit
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-
-        
     }
     private void Update()
     {
@@ -45,7 +43,6 @@ public class Player : Unit
         if (joystickDown)
             Move(_speed);
         LookDirection();
-
     }
     public void LookDirection()
     {

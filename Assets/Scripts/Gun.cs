@@ -7,6 +7,7 @@ public abstract class Gun : Weapon, IShootable
     public abstract Transform FirePoint { get; set; }
 
     public abstract int MagasinSize { get; }
+    public abstract float ShootSoundRadius { get; }
 
     public abstract void Shoot(Transform firePoint);
 
