@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class Gun : Weapon, IShootable
 {
     public abstract Transform FirePoint { get; set; }
-
     public abstract int MagasinSize { get; }
     public abstract float ShootSoundRadius { get; }
 
@@ -31,4 +30,5 @@ public abstract class Gun : Weapon, IShootable
         Debug.Log("Reloading!");
         return bullets;
     }
+
 }

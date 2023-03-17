@@ -1,5 +1,6 @@
+using System.Collections;
 using UnityEngine;
 interface IShootable
 {
-    void Shoot(Transform firePoint);
+   public void Attack(Transform attackPoint);
 }

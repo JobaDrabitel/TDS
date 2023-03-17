@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.Events;
 
 public class GunnerEnemy : Unit, IKillable
 {
@@ -24,7 +25,6 @@ public class GunnerEnemy : Unit, IKillable
         AI = gameObject.GetComponent<AIDestinationSetter>();
         _target = AI.target;
      }
-
     override public void TakeDamage(int damage)
     {
         this._health -= damage;
@@ -45,7 +45,7 @@ public class GunnerEnemy : Unit, IKillable
     {
         transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (Physics2D.OverlapCircle(transform.position, visionRange).GetComponent<Player>()!= null)
         {
@@ -53,10 +53,14 @@ public class GunnerEnemy : Unit, IKillable
 
         }
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Physics2D.OverlapCircle(transform.position, visionRange).GetComponent<Player>() != null)
-            _gun.Attack(aim);
+        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, visionRange);
+        foreach (Collider2D collider2D in collider)
+            if (collider2D.gameObject.GetComponent<Player>() != null)
+               _gun.Attack(aim);
+
+                
     }
     private void FaceDirection()
     {
@@ -69,4 +73,5 @@ public class GunnerEnemy : Unit, IKillable
         if (_target != null)
             FaceDirection();
     }
+
 }

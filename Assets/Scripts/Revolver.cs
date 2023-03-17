@@ -8,6 +8,8 @@ public class Revolver : Gun
     [SerializeField] private GameObject bulletPrefab;
     private int _bulletsInClip = 6;
     private int _magasinSize = 6;
+    private bool _readyForShoot = true;
+    private float _shootDelay = 2f;
     private Bullet _bullet;
     private Transform _firePoint;
     [SerializeField] private CircleCollider2D _shootSoundArea;
@@ -32,10 +34,15 @@ public class Revolver : Gun
     {
         if (_bulletsInClip > 0)
         {
-            _bullet.BulletSpawn(bulletPrefab, firePoint, false);
-            Debug.Log("Бам!");
-            StartCoroutine(CreateShootSound());
-            _bulletsInClip--;
+            if (_readyForShoot)
+            {
+                _bullet.BulletSpawn(bulletPrefab, firePoint, false);
+                Debug.Log("Бам!");
+                StartCoroutine(CreateShootSound());
+                _bulletsInClip--;
+                _readyForShoot =false;
+                StartCoroutine(ShootDelay()); 
+            }
         }
         else
         {
@@ -52,5 +59,10 @@ public class Revolver : Gun
         _shootSoundArea.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         _shootSoundArea.gameObject.SetActive(false);
+    }
+    private IEnumerator ShootDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        _readyForShoot = true;
     }
 }
