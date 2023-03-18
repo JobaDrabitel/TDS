@@ -6,6 +6,7 @@ public class Revolver : Gun
 {
     [SerializeField] private Sprite sprite;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     private int _bulletsInClip = 6;
     private int _magasinSize = 6;
     private bool _readyForShoot = true;
@@ -64,5 +65,9 @@ public class Revolver : Gun
     {
         yield return new WaitForSeconds(2f);
         _readyForShoot = true;
+    }
+    public override void HighlightWeapon()
+    {
+        spriteRenderer.color = Color.white;
     }
 }

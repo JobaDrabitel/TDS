@@ -6,4 +6,5 @@ public abstract class Weapon : MonoBehaviour
 {
     public abstract int Ammo { get; }
     public abstract void Attack(Transform attackPoint);
+    public abstract void HighlightWeapon();
 }

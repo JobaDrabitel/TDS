@@ -65,8 +65,10 @@ public class GunnerEnemy : Unit, IKillable
     private void FaceDirection()
     {
         _lookDirection = _aiPath.desiredVelocity;
-        transform.right = _lookDirection;
-        aim.right = _lookDirection;
+        //transform.right = _lookDirection;
+        //aim.right = _lookDirection;
+        float lookAngle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 90f;
+        _rb.rotation = lookAngle;
     }
     private void Update()
     {

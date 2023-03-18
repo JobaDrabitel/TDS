@@ -13,8 +13,7 @@ public class Player : Unit
     private int _bulletsAmount = 36;
     private int _timeSlowPoints = 100;
     private int _health = 100;
-    private Vector2 position;
-    private Quaternion rotation;
+    private float _interctionRadius = 5f;
     private float _speed = 3f;
     [SerializeField] private Transform attackPoint;
     public float attackRange = 0.5f;
@@ -109,4 +108,20 @@ public class Player : Unit
         _timeSlowPoints+=value;
         playerUI.SetTimeSlowBar();
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
+    private void PickUpWeapon()
+    {
+        Weapon weapon = _currentWeapon;
+        _currentWeapon = GetWeaponForPick();
+        Instantiate(weapon, transform);
+    }
+    private Weapon GetWeaponForPick()
+    {
+        Weapon weapon = Physics2D.OverlapCircle(transform.position, _interctionRadius).GetComponent<Weapon>();
+        return weapon;
+    }
+    public void OnPickUpButtonClick() => PickUpWeapon();
 }

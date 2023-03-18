@@ -26,7 +26,7 @@ public class TimeSlower : MonoBehaviour
         Time.fixedDeltaTime = _basefixedDeltaTime;
         _isTimeSlowed = false;
     }
-    public IEnumerator TimeSlowPointsDecrease(float time)
+    public IEnumerator TimeSlowPointsDecrease()
     {
         if (_isTimeSlowed)
         {
@@ -35,7 +35,9 @@ public class TimeSlower : MonoBehaviour
                 player.DecreaseTimeSlowPoints();
                 yield return new WaitForSeconds(0.01f);
                 Debug.Log(player.TimeSlowPoints);
-                yield return new WaitUntil(()=>_isTimeSlowed);
+                yield return new WaitUntil(()=>_isTimeSlowed || player.TimeSlowPoints == 0);
+                if (player.TimeSlowPoints == 0)
+                    NormalTime();
             }
         }
         else
@@ -46,7 +48,7 @@ public class TimeSlower : MonoBehaviour
         if (!_isTimeSlowed)
         {
             TimeSlow();
-            StartCoroutine(TimeSlowPointsDecrease(player.TimeSlowPoints/10));
+            StartCoroutine(TimeSlowPointsDecrease());
         }
         else
             NormalTime();
