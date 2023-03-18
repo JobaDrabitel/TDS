@@ -11,7 +11,7 @@ public class GunnerEnemy : Unit, IKillable
     [SerializeField] private Weapon _gun;
     [SerializeField] private Transform aim;
     private float visionRange = 50f;
-    protected Bullet _bullet;
+    private int _bullets = 10;
     private Transform _target;
     private AIDestinationSetter AI;
     [SerializeField] private AIPath _aiPath;
@@ -35,7 +35,7 @@ public class GunnerEnemy : Unit, IKillable
     }
     override public void Kill()
     {
-        PointCounter.AddPoints(_bullet.multiplier);
+        PointCounter.AddPoints(Bullet.Multiplier);
         Debug.Log(PlayerData.levelPoints);
         Debug.Log("Я маслину поймал!");
         Destroy(gameObject);
@@ -58,9 +58,9 @@ public class GunnerEnemy : Unit, IKillable
         Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, visionRange);
         foreach (Collider2D collider2D in collider)
             if (collider2D.gameObject.GetComponent<Player>() != null)
-               _gun.Attack(aim);
-
-                
+               _gun.Attack();
+        if (_gun.Ammo <= 0)
+           _bullets = _gun.GetComponent<Gun>().Reload(_bullets);
     }
     private void FaceDirection()
     {

@@ -90,7 +90,7 @@ public class Player : Unit
     }
     public void OnShootButton()
     {
-        _currentWeapon.Attack(attackPoint);
+        _currentWeapon.Attack();
         playerUI.SetBullets();
     }
     public void SetWeapon(Weapon weapon)

@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Revolver : Gun
+public class DoubleBarrel : Gun
 {
     [SerializeField] private Sprite sprite;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    private int _bulletsInClip = 6;
-    private int _magasinSize = 6;
+    private int _bulletsInClip = 2;
+    private int _magasinSize = 2;
     private bool _readyForShoot = true;
-    private float _shootDelay = 2f;
+    private float _shootDelay = 3f;
     private Bullet _bullet;
-    [SerializeField] private Transform[] _firePoint = new Transform[1];
+    [SerializeField] private Transform[] _firePoint = new Transform[2];
     [SerializeField] private CircleCollider2D _shootSoundArea;
 
     public override int Ammo => _bulletsInClip;
@@ -39,13 +39,14 @@ public class Revolver : Gun
             {
                 foreach (Transform fire in _firePoint)
                 {
-                    _bullet.BulletSpawn(bulletPrefab, fire, false);
+                    bulletPrefab.GetComponent<Bullet>().BulletSpawn(bulletPrefab, fire, false);
                     _bulletsInClip--;
+
                 }
                 Debug.Log("Бам!");
                 StartCoroutine(CreateShootSound());
                 _readyForShoot = false;
-                StartCoroutine(ShootDelay()); 
+                StartCoroutine(ShootDelay());
             }
         }
         else
@@ -56,7 +57,7 @@ public class Revolver : Gun
 
     public override void AddAmmo(int value)
     {
-        _bulletsInClip+=value;
+        _bulletsInClip += value;
     }
     private IEnumerator CreateShootSound()
     {

@@ -8,6 +8,7 @@ public class PointCounter
   public static int AddPoints(int multiplier)
     {
         PlayerData.levelPoints += 100 * multiplier;
+        Bullet.Multiplier = 0;
         return PlayerData.levelPoints;
     }
     public int SumPoints()

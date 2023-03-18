@@ -11,13 +11,14 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 lastVelocity;
     private static bool _isPlayer = false;
-    public int multiplier = 1;
+    private static int multiplier = 1;
+    public static int Multiplier { get => multiplier; set => multiplier = value; }
 
     public void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         Destroy(gameObject,5);
-    }
+     }
     private void OnCollisionEnter2D(Collision2D collider)
     {
         if (collider.gameObject.CompareTag("Enemy"))
