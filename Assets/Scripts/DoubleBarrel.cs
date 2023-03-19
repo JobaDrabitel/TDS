@@ -12,8 +12,10 @@ public class DoubleBarrel : Gun
     private bool _readyForShoot = true;
     private float _shootDelay = 3f;
     private Bullet _bullet;
+    private bool _isEquiped;
     [SerializeField] private Transform[] _firePoint = new Transform[2];
     [SerializeField] private CircleCollider2D _shootSoundArea;
+    public override bool IsEquiped { get => _isEquiped; }
 
     public override int Ammo => _bulletsInClip;
 
@@ -30,7 +32,10 @@ public class DoubleBarrel : Gun
         _shootSoundArea.gameObject.SetActive(false);
         _shootSoundArea.radius = _soundRadius;
     }
-
+    public override void SetWeaponEquiped()
+    {
+        _isEquiped = true;
+    }
     public override void Shoot()
     {
         if (_bulletsInClip > 0)
@@ -39,9 +44,8 @@ public class DoubleBarrel : Gun
             {
                 foreach (Transform fire in _firePoint)
                 {
-                    bulletPrefab.GetComponent<Bullet>().BulletSpawn(bulletPrefab, fire, false);
+                    _bullet.BulletSpawn(bulletPrefab, fire, false);
                     _bulletsInClip--;
-
                 }
                 Debug.Log("Бам!");
                 StartCoroutine(CreateShootSound());

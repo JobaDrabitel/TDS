@@ -405,13 +405,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestWeapon
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 31797960728980535, guid: 78dfb44133400714ca3a842982527f05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 78dfb44133400714ca3a842982527f05, type: 3}
+--- !u!4 &1867293365547474461 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1582576133932584470, guid: 78dfb44133400714ca3a842982527f05, type: 3}
+  m_PrefabInstance: {fileID: 873564152226287627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5838348933767658749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6708813803233406198, guid: 78dfb44133400714ca3a842982527f05, type: 3}
   m_PrefabInstance: {fileID: 873564152226287627}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5838348933767658750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6708813803233406197, guid: 78dfb44133400714ca3a842982527f05, type: 3}
+  m_PrefabInstance: {fileID: 873564152226287627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &412178460132625330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5838348933767658750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77571bd4f71e6e418cb118d4d7d0467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  bulletPrefab: {fileID: 4599852574004686568, guid: 19cb2b2cf1bf5fc45945ad805921ee1f, type: 3}
+  spriteRenderer: {fileID: 4909870111120330004, guid: 32d98191da8b1ee4d8efcf186c12f6c3, type: 3}
+  _firePoint:
+  - {fileID: 1867293365547474461}
+  _shootSoundArea: {fileID: 0}
 --- !u!1001 &6633706676991294182
 PrefabInstance:
   m_ObjectHideFlags: 0

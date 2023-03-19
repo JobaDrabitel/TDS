@@ -14,9 +14,12 @@ public class Bullet : MonoBehaviour
     private static int multiplier = 1;
     public static int Multiplier { get => multiplier; set => multiplier = value; }
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     public void Awake()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
         Destroy(gameObject,5);
      }
     private void OnCollisionEnter2D(Collision2D collider)

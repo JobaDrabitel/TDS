@@ -15,13 +15,16 @@ public class PlayerUI : MonoBehaviour
 
     private void Start()
     {
-        playerWeapon = player.CurrentWeapon.GetComponent<Weapon>();
+        SetPlayerWeapon();
         SetHealth(player.Health);
         SetBullets();
         SetTimeSlowBar();
     }
  
-
+    public void SetPlayerWeapon()
+    {
+        playerWeapon = player.CurrentWeapon.GetComponent<Weapon>();
+    }
     public void SetBullets()
     {
         bulletInGun.text = playerWeapon.Ammo.ToString();

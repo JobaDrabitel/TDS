@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : Unit
 {
+    public UnityEvent PickUpWeaponEvent;
     private Rigidbody2D _rb;
     [SerializeField] PlayerData playerData;
     private Vector2 movement;
@@ -30,6 +32,8 @@ public class Player : Unit
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        PickUpWeaponEvent.AddListener(playerUI.SetPlayerWeapon);
+        PickUpWeaponEvent.AddListener(_currentWeapon.SetWeaponEquiped);
     }
     private void Update()
     {
@@ -114,14 +118,27 @@ public class Player : Unit
     }
     private void PickUpWeapon()
     {
-        Weapon weapon = _currentWeapon;
-        _currentWeapon = GetWeaponForPick();
-        Instantiate(weapon, transform);
+        if (GetWeaponForPick() != null)
+        {
+            Transform weaponSpawnPoint = gameObject.transform;
+            Weapon weapon = _currentWeapon;
+            _currentWeapon=null;
+            _currentWeapon = GetWeaponForPick();
+            PickUpWeaponEvent.Invoke();
+            Instantiate(weapon, weaponSpawnPoint);
+        }
     }
     private Weapon GetWeaponForPick()
     {
-        Weapon weapon = Physics2D.OverlapCircle(transform.position, _interctionRadius).GetComponent<Weapon>();
-        return weapon;
+        Weapon weapon;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _interctionRadius);
+        foreach (Collider2D collider in colliders)
+            if (collider.gameObject.GetComponent<DoubleBarrel>() != null)
+            {
+                weapon = collider.gameObject.GetComponent<DoubleBarrel>();
+                return weapon;
+            }
+         return null;
     }
     public void OnPickUpButtonClick() => PickUpWeapon();
 }

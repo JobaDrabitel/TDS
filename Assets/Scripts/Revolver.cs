@@ -12,6 +12,7 @@ public class Revolver : Gun
     private bool _readyForShoot = true;
     private float _shootDelay = 2f;
     private Bullet _bullet;
+    private bool _isEquiped = false;
     [SerializeField] private Transform[] _firePoint = new Transform[1];
     [SerializeField] private CircleCollider2D _shootSoundArea;
 
@@ -24,11 +25,17 @@ public class Revolver : Gun
     private float _soundRadius = 30f;
     public override float ShootSoundRadius => _soundRadius;
 
+    public override bool IsEquiped { get => _isEquiped;}
+
     private void Start()
     {
         _bullet = bulletPrefab.GetComponent<Bullet>();
         _shootSoundArea.gameObject.SetActive(false);
         _shootSoundArea.radius = _soundRadius;
+    }
+    public override void SetWeaponEquiped()
+    {
+        _isEquiped=true;
     }
 
     public override void Shoot()
