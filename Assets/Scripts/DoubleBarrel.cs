@@ -13,13 +13,11 @@ public class DoubleBarrel : Gun
     private float _shootDelay = 3f;
     private Bullet _bullet;
     private bool _isEquiped;
-    [SerializeField] private Transform[] _firePoint = new Transform[2];
     [SerializeField] private CircleCollider2D _shootSoundArea;
     public override bool IsEquiped { get => _isEquiped; }
 
     public override int Ammo => _bulletsInClip;
 
-    public override Transform[] FirePoint { get => _firePoint; set => _firePoint = value; }
 
     public override int MagasinSize => _magasinSize;
 
@@ -36,13 +34,13 @@ public class DoubleBarrel : Gun
     {
         _isEquiped = true;
     }
-    public override void Shoot()
+    public override void Shoot(Transform[] firepoint)
     {
         if (_bulletsInClip > 0)
         {
             if (_readyForShoot)
             {
-                foreach (Transform fire in _firePoint)
+                foreach (Transform fire in firepoint)
                 {
                     _bullet.BulletSpawn(bulletPrefab, fire, false);
                     _bulletsInClip--;

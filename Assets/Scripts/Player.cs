@@ -17,7 +17,7 @@ public class Player : Unit
     private int _health = 100;
     private float _interctionRadius = 5f;
     private float _speed = 3f;
-    [SerializeField] private Transform attackPoint;
+    [SerializeField] private Transform[] attackPoints;
     public float attackRange = 0.5f;
     public LayerMask defaultLayer;
     public int attackDamage = 20;
@@ -25,7 +25,7 @@ public class Player : Unit
     public int Health => _health;
     [SerializeField] private Weapon _currentWeapon;
     public int TimeSlowPoints { get => _timeSlowPoints; }
-    public Transform AttackPoint { get => attackPoint; }
+    public Transform[] AttackPoint { get => attackPoints; }
     public Weapon CurrentWeapon { get => _currentWeapon; }   
     public int Bullets { get => _bulletsAmount; }
 
@@ -94,7 +94,7 @@ public class Player : Unit
     }
     public void OnShootButton()
     {
-        _currentWeapon.Attack();
+        _currentWeapon.Attack(attackPoints);
         playerUI.SetBullets();
     }
     public void SetWeapon(Weapon weapon)
@@ -123,22 +123,36 @@ public class Player : Unit
             Transform weaponSpawnPoint = gameObject.transform;
             Weapon weapon = _currentWeapon;
             _currentWeapon=null;
-            _currentWeapon = GetWeaponForPick();
+            _currentWeapon = SetParentForWeapon(GetWeaponForPick().gameObject);
             PickUpWeaponEvent.Invoke();
-            Instantiate(weapon, weaponSpawnPoint);
+            if (weapon != null)
+                Instantiate(weapon, weaponSpawnPoint);
         }
     }
     private Weapon GetWeaponForPick()
     {
-        Weapon weapon;
+        GameObject weapon = null;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _interctionRadius);
         foreach (Collider2D collider in colliders)
-            if (collider.gameObject.GetComponent<DoubleBarrel>() != null)
+        {
+            if (collider.gameObject.GetComponent<Weapon>() != null)
             {
-                weapon = collider.gameObject.GetComponent<DoubleBarrel>();
-                return weapon;
+                weapon = collider.gameObject;
+                if (weapon.GetComponentInParent<GunnerEnemy>() != null || weapon.GetComponentInParent<Player>())
+                    continue;
+                if (weapon != null)
+                    return weapon.GetComponent<Weapon>();
             }
+        }
          return null;
+    }
+    public Weapon SetParentForWeapon(GameObject weapon)
+    {
+        weapon.transform.SetParent(transform);
+        weapon.transform.localPosition = new Vector3(0f, 0f, 0.5f);
+        weapon.transform.localRotation = Quaternion.identity;
+        weapon.GetComponent<Collider2D>().enabled = false;
+        return weapon.GetComponent<Weapon>();
     }
     public void OnPickUpButtonClick() => PickUpWeapon();
 }

@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack
     [SerializeField] Player playerData;
     public void Attack()
     {
-        Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(playerData.AttackPoint.position, playerData.attackRange, playerData.defaultLayer);
+        Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(playerData.AttackPoint[0].position, playerData.attackRange, playerData.defaultLayer);
         if (enemiesInRange.Length > 0)
         foreach (Collider2D enemy in enemiesInRange)
             {

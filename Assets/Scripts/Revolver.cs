@@ -13,12 +13,10 @@ public class Revolver : Gun
     private float _shootDelay = 2f;
     private Bullet _bullet;
     private bool _isEquiped = false;
-    [SerializeField] private Transform[] _firePoint = new Transform[1];
     [SerializeField] private CircleCollider2D _shootSoundArea;
 
     public override int Ammo => _bulletsInClip;
 
-    public override Transform[] FirePoint { get => _firePoint; set => _firePoint = value; }
 
     public override int MagasinSize => _magasinSize;
 
@@ -38,17 +36,15 @@ public class Revolver : Gun
         _isEquiped=true;
     }
 
-    public override void Shoot()
+    public override void Shoot(Transform[] firepoint)
     {
         if (_bulletsInClip > 0)
         {
             if (_readyForShoot)
             {
-                foreach (Transform fire in _firePoint)
-                {
+                foreach (Transform fire in firepoint)
                     _bullet.BulletSpawn(bulletPrefab, fire, false);
                     _bulletsInClip--;
-                }
                 Debug.Log("Бам!");
                 StartCoroutine(CreateShootSound());
                 _readyForShoot = false;

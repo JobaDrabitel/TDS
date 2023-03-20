@@ -6,7 +6,7 @@ public abstract class Weapon : MonoBehaviour
 {
     public abstract int Ammo { get; }
     public abstract bool IsEquiped { get; }
-    public abstract void Attack();
+    public abstract void Attack(Transform[] firepoint);
     public abstract void HighlightWeapon();
     public abstract void SetWeaponEquiped();
 }

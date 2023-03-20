@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6708813803233406198}
   - component: {fileID: 6708813803233406199}
   - component: {fileID: 31797960728980535}
+  - component: {fileID: 6314998133340884337}
   m_Layer: 0
   m_Name: TestWeapon
   m_TagString: Untagged
@@ -106,6 +107,57 @@ MonoBehaviour:
   - {fileID: 5254590258613588230, guid: 233505e82dd078b418f90c23a95a8d62, type: 3}
   - {fileID: 225999404428289115, guid: 305fce8ded4e84a448ee22ee718200ca, type: 3}
   _shootSoundArea: {fileID: 6377595697548951250, guid: ef0c5611ab8b98e40ab2df8d8b9d1f15, type: 3}
+--- !u!60 &6314998133340884337
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6708813803233406197}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 3.4}
+    newSize: {x: 0.7, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.29999998, y: 0.12}
+      - {x: 0.34, y: 0.71}
+      - {x: 0.24, y: 1.11}
+      - {x: 0.12, y: 1.6999999}
+      - {x: -0.12, y: 1.6999999}
+      - {x: -0.38, y: 0.93}
+      - {x: -0.39999998, y: 0.7}
+      - {x: -0.39999998, y: 0.26}
+      - {x: -0.22, y: 0.28}
+      - {x: -0.22, y: -1.6999999}
+      - {x: 0.22, y: -1.6999999}
+      - {x: 0.26, y: -0.96999997}
+      - {x: 0.39999998, y: -0.89}
+      - {x: 0.39999998, y: 0.08}
+    - - {x: -0.26999998, y: 0.57}
+      - {x: -0.22999999, y: 0.57}
+      - {x: -0.22999999, y: 0.42999998}
+      - {x: -0.26999998, y: 0.42999998}
+    - - {x: 0.13, y: 0.66999996}
+      - {x: 0.17, y: 0.66999996}
+      - {x: 0.17, y: 0.42999998}
+      - {x: 0.13, y: 0.42999998}
+    - - {x: -0.17, y: 0.66999996}
+      - {x: -0.13, y: 0.66999996}
+      - {x: -0.13, y: 0.63}
+      - {x: -0.17, y: 0.63}
 --- !u!1001 &6708813802241852645
 PrefabInstance:
   m_ObjectHideFlags: 0

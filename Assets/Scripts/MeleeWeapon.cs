@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class MeleeWeapon : Weapon
 {
     public abstract int AttackRange { get; }
-    public override void Attack()
+    public override void Attack(Transform[] firepoint)
     {
         MeleeAttack(AttackRange);
     }

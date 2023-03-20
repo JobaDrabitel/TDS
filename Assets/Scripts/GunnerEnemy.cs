@@ -9,7 +9,7 @@ public class GunnerEnemy : Unit, IKillable
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private int _health = 100;
     [SerializeField] private Weapon _gun;
-    [SerializeField] private Transform aim;
+    [SerializeField] private Transform[] aim;
     private float visionRange = 50f;
     private int _bullets = 10;
     private Transform _target;
@@ -58,7 +58,7 @@ public class GunnerEnemy : Unit, IKillable
         Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, visionRange);
         foreach (Collider2D collider2D in collider)
             if (collider2D.gameObject.GetComponent<Player>() != null)
-               _gun.Attack();
+               _gun.Attack(aim);
         if (_gun.Ammo <= 0)
            _bullets = _gun.GetComponent<Gun>().Reload(_bullets);
     }
