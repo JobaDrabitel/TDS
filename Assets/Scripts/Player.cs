@@ -155,4 +155,6 @@ public class Player : Unit
         return weapon.GetComponent<Weapon>();
     }
     public void OnPickUpButtonClick() => PickUpWeapon();
+    public void OnSaveButtonClick() => SaveManagerController.SavePlayer(playerData);
+    public void OnLoadButtonClick() => playerData.LoadPlayer();
 }
