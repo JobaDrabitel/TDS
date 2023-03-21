@@ -47,10 +47,16 @@ public class GunnerEnemy : Unit, IKillable
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Physics2D.OverlapCircle(transform.position, visionRange).GetComponent<Player>()!= null)
+        if (AI.target == null)
         {
-            _target = collision.transform;
-
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, visionRange);
+            foreach (Collider2D collider in colliders)
+                if (collider.GetComponent<Player>() != null)
+                {
+                    _target = collision.transform;
+                    AI.target = _target;
+                    return;
+                }
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -58,15 +64,16 @@ public class GunnerEnemy : Unit, IKillable
         Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, visionRange);
         foreach (Collider2D collider2D in collider)
             if (collider2D.gameObject.GetComponent<Player>() != null)
-               _gun.Attack(aim);
-        if (_gun.Ammo <= 0)
-           _bullets = _gun.GetComponent<Gun>().Reload(_bullets);
+            {
+
+                _gun.Attack(aim);
+                if (_gun.Ammo <= 0)
+                    _bullets = _gun.GetComponent<Gun>().Reload(_bullets);
+            }
     }
     private void FaceDirection()
     {
         _lookDirection = _aiPath.desiredVelocity;
-        //transform.right = _lookDirection;
-        //aim.right = _lookDirection;
         float lookAngle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 90f;
         _rb.rotation = lookAngle;
     }
