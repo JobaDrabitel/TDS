@@ -1,5 +1,5 @@
 interface IKillable
 {
-    void Kill();
+    void Die();
     void TakeDamage(int damage);
 }

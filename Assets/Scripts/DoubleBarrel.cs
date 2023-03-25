@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class DoubleBarrel : Gun
 {
-    [SerializeField] private Sprite sprite;
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite spriteEquiped;
+    [SerializeField] private Sprite spriteOnGround;
+    private SpriteRenderer _spriteRenderer;
     private int _bulletsInClip = 2;
     private int _magasinSize = 2;
     private bool _readyForShoot = true;
@@ -14,7 +15,6 @@ public class DoubleBarrel : Gun
     private Bullet _bullet;
     private bool _isEquiped;
     [SerializeField] private CircleCollider2D _shootSoundArea;
-    public override bool IsEquiped { get => _isEquiped; }
 
     public override int Ammo => _bulletsInClip;
 
@@ -26,13 +26,11 @@ public class DoubleBarrel : Gun
 
     private void Start()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _bullet = bulletPrefab.GetComponent<Bullet>();
         _shootSoundArea.gameObject.SetActive(false);
         _shootSoundArea.radius = _soundRadius;
-    }
-    public override void SetWeaponEquiped()
-    {
-        _isEquiped = true;
+        SetSprite();
     }
     public override void Shoot(Transform[] firepoint)
     {
@@ -72,8 +70,18 @@ public class DoubleBarrel : Gun
         yield return new WaitForSeconds(_shootDelay);
         _readyForShoot = true;
     }
-    public override void HighlightWeapon()
+    public override Vector3 GetOffset (Transform transform)
     {
-        spriteRenderer.color = Color.white;
+        Vector3 offset = transform.up * 0.7f; // вычисляем вектор смещения
+        offset += transform.right * 0.4f;
+        return offset;
+    }
+    public override void SetSprite()
+    {
+        if (GetComponentInParent<Enemy>() || GetComponentInParent<Player>() != null)
+            _spriteRenderer.sprite = spriteEquiped;
+        else
+            _spriteRenderer.sprite = spriteOnGround;
+
     }
 }

@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7867412108990118314}
   m_LocalRotation: {x: 0, y: 0, z: 0.046514016, w: 0.99891764}
   m_LocalPosition: {x: -0.26792353, y: -0.25850663, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -139,10 +139,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a454bc9e23741d14b8e7334344456ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpWeaponEvent:
+    m_PersistentCalls:
+      m_Calls: []
   playerData: {fileID: 7052990490683927615}
   cam: {fileID: 0}
   joystick: {fileID: 0}
-  attackPoint: {fileID: 0}
+  attackPoints: []
   attackRange: 0.5
   defaultLayer:
     serializedVersion: 2

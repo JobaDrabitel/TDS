@@ -6,7 +6,7 @@ abstract public class Unit : MonoBehaviour, IKillable, IMovable
 {
 
     abstract public void TakeDamage(int damage);
-    virtual public void Kill()
+    virtual public void Die()
     {
         Destroy(gameObject);
     }

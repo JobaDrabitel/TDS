@@ -15,7 +15,7 @@ public class Player : Unit
     private int _bulletsAmount = 36;
     private int _timeSlowPoints = 100;
     private int _health = 100;
-    private float _interctionRadius = 5f;
+    private float _interctionRadius = 2f;
     private float _speed = 3f;
     [SerializeField] private Transform[] attackPoints;
     public float attackRange = 0.5f;
@@ -33,7 +33,6 @@ public class Player : Unit
     {
         _rb = GetComponent<Rigidbody2D>();
         PickUpWeaponEvent.AddListener(playerUI.SetPlayerWeapon);
-        PickUpWeaponEvent.AddListener(_currentWeapon.SetWeaponEquiped);
     }
     private void Update()
     {
@@ -71,10 +70,10 @@ public class Player : Unit
     {
         _health -= damage;
         if (_health <= 0)
-            Kill();
+            Die();
 
     }
-    public override void Kill()
+    public override void Die()
     {
         gameObject.SetActive(false);
         Debug.Log("Я не хочу умирать мама");
@@ -112,20 +111,18 @@ public class Player : Unit
         _timeSlowPoints+=value;
         playerUI.SetTimeSlowBar();
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
+
     private void PickUpWeapon()
     { 
         if (GetWeaponForPick() != null)
         {
-            GameObject weaponForDrop = null;
+            Weapon weaponForDrop = null;
             if (_currentWeapon != null)
-                weaponForDrop = _currentWeapon.gameObject;   
-            _currentWeapon = SetParentForWeapon(GetWeaponForPick().gameObject);
+                weaponForDrop = _currentWeapon;   
+            _currentWeapon = GetWeaponForPick();
+            _currentWeapon.SetParentForWeapon(_currentWeapon.gameObject, transform);
             if (weaponForDrop != null)
-                SetNoParentForWeapon(weaponForDrop.gameObject);
+                  weaponForDrop.SetNoParentForWeapon(weaponForDrop.gameObject);
             PickUpWeaponEvent.Invoke();
         }
     }
@@ -137,8 +134,9 @@ public class Player : Unit
         {
             if (collider.gameObject.GetComponent<Weapon>() != null)
             {
-                weapon = collider.gameObject;
-                if (weapon.GetComponentInParent<GunnerEnemy>() != null || weapon.GetComponentInParent<Player>())
+                if (collider.GetComponentInParent<Enemy>() == null && collider.GetComponentInParent<Player>() == null)
+                    weapon = collider.gameObject;
+                else
                     continue;
                 if (weapon != null)
                     return weapon.GetComponent<Weapon>();
@@ -146,20 +144,8 @@ public class Player : Unit
         }
          return weapon!=null? weapon.GetComponent<Weapon>():null;
     }
-    public Weapon SetParentForWeapon(GameObject weapon)
-    {
-        weapon.transform.SetParent(transform);
-        weapon.transform.localPosition = new Vector3(0f, 0f, 0.5f);
-        weapon.transform.localRotation = Quaternion.identity;
-        weapon.GetComponent<Collider2D>().enabled = false;
-        return weapon.GetComponent<Weapon>();
-    }
-    public void SetNoParentForWeapon(GameObject weapon)
-    {
-        weapon.transform.parent = null;
-        weapon.transform.localRotation = Quaternion.Euler(Random.Range(0, 360),Random.Range(0, 360), 0);
-        weapon.GetComponent<Collider2D>().enabled = true;
-    }
+   
+
     public void OnPickUpButtonClick() => PickUpWeapon();
     public void OnSaveButtonClick() => SaveManagerController.SavePlayer(playerData);
     public void OnLoadButtonClick() => playerData.LoadPlayer();

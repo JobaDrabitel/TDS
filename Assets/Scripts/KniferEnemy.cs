@@ -4,17 +4,16 @@ using UnityEngine;
 using Pathfinding;
 using UnityEngine.Events;
 
-public class GunnerEnemy : Enemy, IKillable
+public class KniferEnemy : Enemy
 {
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private int _health = 10;
     [SerializeField] private Weapon _weapon;
+    private float _attackRange;
+    public override float AttackRange { get => _attackRange; }
     [SerializeField] private Transform[] aim;
     private float _visionRange = 50f;
     public override float VisionRange => _visionRange;
-    private float _attackRange;
-    public override float AttackRange => _attackRange;
-
     private int _bullets = 10;
     private AIDestinationSetter _AI;
     [SerializeField] private AIPath _aiPath;
@@ -27,10 +26,10 @@ public class GunnerEnemy : Enemy, IKillable
         //Weapon weapon = GetComponentInChildren<Weapon>();
         //if(weapon!=null)
         //    _weapon = weapon;
-        _attackRange = _visionRange;
+        _attackRange = _weapon.GetComponent<MeleeWeapon>().AttackRange;
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _AI = gameObject.GetComponent<AIDestinationSetter>();
-     }
+    }
     override public void TakeDamage(int damage)
     {
         this._health -= damage;
@@ -52,13 +51,13 @@ public class GunnerEnemy : Enemy, IKillable
     {
         transform.position = Vector3.MoveTowards(transform.position, _AI.target.transform.position, _speed * Time.deltaTime);
     }
-  
+
     private void OnTriggerStay2D(Collider2D collider)
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _visionRange);
             _AI.target = GetTarget(colliders);
         if (_AI.target != null)
-            AimToTarget(_AI.target);  
+            AimToTarget(_AI.target);
     }
     public override void LookForward()
     {

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private GameObject BulletPrefab;
-    [SerializeField] private static float _bulletSpeed = 4f;
-    [SerializeField] public static int _bulletDamage = 40;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private static float _bulletSpeed = 10f;
+    [SerializeField] public static int _bulletDamage = 50;
     private Rigidbody2D rb;
     private Vector3 lastVelocity;
     private static bool _isPlayer = false;
@@ -24,20 +24,13 @@ public class Bullet : MonoBehaviour
      }
     private void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.CompareTag("Enemy"))
+        if (collider.gameObject.GetComponent<Enemy>() != null || collider.gameObject.GetComponent<Player>() != null)
         {
             collider.gameObject.GetComponent<Unit>().TakeDamage(_bulletDamage);
             Destroy(gameObject);
         }
-        if (collider.gameObject.CompareTag("Player"))
-        {
-            collider.gameObject.GetComponent<Unit>().TakeDamage(_bulletDamage);
-            Destroy(gameObject);
-        }
-        if (collider.gameObject.CompareTag("Bullet") || (collider.gameObject.CompareTag("Obstacle")))
-        {
+        if (collider.gameObject.GetComponent<Bullet>()!=null || (collider.gameObject.CompareTag("Obstacle")))
             Ricochet(collider, rb);
-        }
     }
     private void Update()
     {
