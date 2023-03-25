@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MedKit : BuffItem
 {
+    public UnityEvent OnMedKitPickUp;
     private bool _isMirrored = false;    
     public IEnumerator MirrorDelay()
     {

@@ -5,7 +5,6 @@ using UnityEngine;
 abstract public class Unit : MonoBehaviour, IKillable, IMovable
 {
 
-    abstract public void TakeDamage(int damage);
     virtual public void Die()
     {
         Destroy(gameObject);

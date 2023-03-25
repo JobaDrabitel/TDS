@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class Player : Unit
 {
     public UnityEvent PickUpWeaponEvent;
-    private Rigidbody2D _rb;
+    [SerializeField] private Rigidbody2D _rb;
     [SerializeField] PlayerData playerData;
     private Vector2 movement;
     [SerializeField] private Camera cam;
@@ -14,15 +14,12 @@ public class Player : Unit
     public static bool joystickDown = false;
     private int _bulletsAmount = 36;
     private int _timeSlowPoints = 100;
-    private int _health = 100;
     private float _interctionRadius = 2f;
     private float _speed = 3f;
+    private float _attackRange;
+    public float AttackRange => _attackRange;
     [SerializeField] private Transform[] attackPoints;
-    public float attackRange = 0.5f;
-    public LayerMask defaultLayer;
-    public int attackDamage = 20;
     [SerializeField] private PlayerUI playerUI;
-    public int Health => _health;
     [SerializeField] private Weapon _currentWeapon;
     public int TimeSlowPoints { get => _timeSlowPoints; }
     public Transform[] AttackPoint { get => attackPoints; }
@@ -31,7 +28,9 @@ public class Player : Unit
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        playerUI.SetTimeSlowPoints(TimeSlowPoints);
+        _attackRange = _currentWeapon.GetComponent<MeleeWeapon>().AttackRange;
+        _rb = gameObject.GetComponent<Rigidbody2D>();
         PickUpWeaponEvent.AddListener(playerUI.SetPlayerWeapon);
     }
     private void Update()
@@ -56,21 +55,6 @@ public class Player : Unit
     {
 
         _rb.MovePosition(_rb.position + movement * movementSpeed * Time.fixedDeltaTime);
-
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            TakeDamage(Bullet._bulletDamage);
-            playerData.healthBar.SetHealth(_health);
-        }
-    }
-    public override void TakeDamage(int damage)
-    {
-        _health -= damage;
-        if (_health <= 0)
-            Die();
 
     }
     public override void Die()
@@ -99,12 +83,14 @@ public class Player : Unit
     public void SetWeapon(Weapon weapon)
     {
         _currentWeapon = weapon;
+        _attackRange = _currentWeapon.GetComponent<MeleeWeapon>().AttackRange;
         playerUI.SetBullets();
     }
     public void DecreaseTimeSlowPoints()
     {
         _timeSlowPoints--;
         playerUI.SetTimeSlowBar();
+        playerUI.SetTimeSlowPoints(_timeSlowPoints);
     }
     public void IncreaseTimeSlowPoints(int value)
     {
@@ -171,4 +157,5 @@ public class Player : Unit
             yield return null;
         }
     }
+
 }

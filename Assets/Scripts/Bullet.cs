@@ -7,7 +7,6 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private static float _bulletSpeed = 10f;
-    [SerializeField] public static int _bulletDamage = 50;
     private Rigidbody2D rb;
     private Vector3 lastVelocity;
     private static bool _isPlayer = false;
@@ -26,7 +25,7 @@ public class Bullet : MonoBehaviour
     {
         if (collider.gameObject.GetComponent<Enemy>() != null || collider.gameObject.GetComponent<Player>() != null)
         {
-            collider.gameObject.GetComponent<Unit>().TakeDamage(_bulletDamage);
+            collider.gameObject.GetComponent<Unit>().Die();
             Destroy(gameObject);
         }
         if (collider.gameObject.GetComponent<Bullet>()!=null || (collider.gameObject.CompareTag("Obstacle")))

@@ -30,18 +30,9 @@ public class KniferEnemy : Enemy
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _AI = gameObject.GetComponent<AIDestinationSetter>();
     }
-    override public void TakeDamage(int damage)
-    {
-        this._health -= damage;
-        Debug.Log(_health);
-        if (_health <= 0)
-            Die();
-
-    }
     override public void Die()
     {
-        PointCounter.AddPoints(Bullet.Multiplier);
-        Debug.Log(PlayerData.levelPoints);
+        PlayerData.AddPoints(Bullet.Multiplier);
         Debug.Log("Я маслину поймал!");
         _weapon.SetNoParentForWeapon(_weapon.gameObject);
         Destroy(gameObject);
