@@ -17,6 +17,8 @@ public class Player : Unit
     private float _interctionRadius = 2f;
     private float _speed = 3f;
     private float _attackRange;
+    private bool _isInvulnerable = false;
+    private StunnedUnit _stunnedUnit;
     public float AttackRange => _attackRange;
     [SerializeField] private Transform[] attackPoints;
     [SerializeField] private PlayerUI playerUI;
@@ -25,9 +27,11 @@ public class Player : Unit
     public Transform[] AttackPoint { get => attackPoints; }
     public Weapon CurrentWeapon { get => _currentWeapon; }   
     public int Bullets { get => _bulletsAmount; }
+    public PlayerData PlayerData => playerData;
 
     private void Start()
     {
+        _stunnedUnit = GetComponent<StunnedUnit>();
         playerUI.SetTimeSlowPoints(TimeSlowPoints);
         _attackRange = _currentWeapon.GetComponent<MeleeWeapon>().AttackRange;
         _rb = gameObject.GetComponent<Rigidbody2D>();
@@ -59,8 +63,36 @@ public class Player : Unit
     }
     public override void Die()
     {
-        gameObject.SetActive(false);
-        Debug.Log("Я не хочу умирать мама");
+        if (!_isInvulnerable)
+        {
+            gameObject.SetActive(false);
+            playerUI.ShowDeathScreen();
+            Debug.Log("Я не хочу умирать мама");
+        }
+        else
+        {
+            Debug.Log("Саки ракать");
+        }
+    }
+    public bool CanBeResurrected()
+    {
+        if (playerData.Moonshines > playerData.UsedMoonshines)
+        {
+            gameObject.SetActive(true);
+            _isInvulnerable = true;
+            StartCoroutine(DisableInvulnerable());
+            playerData.DecreaseMoonshines();
+            playerUI.SetMoonshines();
+            return true;
+        }
+        else 
+            return false;
+
+    }
+    private IEnumerator DisableInvulnerable()
+    {
+        yield return new WaitForSeconds(2f);
+        _isInvulnerable = false;
     }
     public void OnReloadButtonClick()
     {

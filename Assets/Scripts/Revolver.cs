@@ -13,7 +13,9 @@ public class Revolver : Gun
     private bool _readyForShoot = true;
     private float _shootDelay = 2f;
     private Bullet _bullet;
+    private AudioSource _audioSource;
     [SerializeField] private CircleCollider2D _shootSoundArea;
+    private Animator _animator;
 
     public override int Ammo => _bulletsInClip;
 
@@ -23,8 +25,12 @@ public class Revolver : Gun
     private float _soundRadius = 30f;
     public override float ShootSoundRadius => _soundRadius;
 
+    public override Animator Animator => _animator;
+
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
+        _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _bullet = bulletPrefab.GetComponent<Bullet>();
         _shootSoundArea.gameObject.SetActive(false);
@@ -40,6 +46,10 @@ public class Revolver : Gun
                 _bullet.BulletSpawn(bulletPrefab, firepoint[0], false);
                 _bulletsInClip--;
                 Debug.Log("Бам!");
+                _animator.Play("Revolver Shoot");
+                _animator.SetBool("isShooting", true);
+                _animator.SetBool("isShooting", false);
+                _audioSource.Play();
                 StartCoroutine(CreateShootSound());
                 _readyForShoot = false;
                 StartCoroutine(ShootDelay()); 

@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     public abstract int Ammo { get; }
+    public abstract Animator Animator { get; }
     public abstract void Attack(Transform[] firepoint);
     public virtual Weapon SetParentForWeapon(GameObject weapon, Transform transform)
     {

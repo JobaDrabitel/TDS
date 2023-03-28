@@ -8,13 +8,13 @@ public class SaveManagerController
 {
     public static void SavePlayer(PlayerData playerData)
     {
+        Debug.Log("Game saved!");
         BinaryFormatter formatter = new BinaryFormatter();
         string path = "C:/Users/legen/TPS/Saves/Save.fun";
         FileStream fs = new FileStream(path, FileMode.Create);
         PlayerSaver data = new PlayerSaver(playerData);
         formatter.Serialize(fs, data);
         fs.Close();
-        Debug.Log("Game saved!");
     }
     public static PlayerSaver LoadPlayer()
     {

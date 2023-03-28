@@ -21,12 +21,13 @@ public class GunnerEnemy : Enemy, IKillable
     private float _speed = 5f;
     private Vector2 _lookDirection;
 
-
+    private StunnedUnit _stunnedUnit;
     private void Start()
     {
         //Weapon weapon = GetComponentInChildren<Weapon>();
         //if(weapon!=null)
         //    _weapon = weapon;
+        _stunnedUnit = GetComponent<StunnedUnit>();
         _attackRange = _visionRange;
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _AI = gameObject.GetComponent<AIDestinationSetter>();
@@ -41,15 +42,19 @@ public class GunnerEnemy : Enemy, IKillable
 
     public override void Move(float movementspeed)
     {
+        if(!_stunnedUnit.IsStunned)
         transform.position = Vector3.MoveTowards(transform.position, _AI.target.transform.position, _speed * Time.deltaTime);
     }
   
     private void OnTriggerStay2D(Collider2D collider)
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _visionRange);
+        if (!_stunnedUnit.IsStunned)
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _visionRange);
             _AI.target = GetTarget(colliders);
-        if (_AI.target != null)
-            AimToTarget(_AI.target);  
+            if (_AI.target != null)
+                AimToTarget(_AI.target);
+        }
     }
     public override void LookForward()
     {

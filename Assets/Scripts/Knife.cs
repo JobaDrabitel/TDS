@@ -22,6 +22,8 @@ public class Knife : MeleeWeapon
 
     public override bool ReadyToAttack { get => _readyToAttack; set => _readyToAttack = value; }
 
+    public override Animator Animator => throw new System.NotImplementedException();
+
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();

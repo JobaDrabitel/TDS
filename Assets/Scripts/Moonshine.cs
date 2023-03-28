@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class MedKit : BuffItem
+public class Moonshine : BuffItem
 {
-    public UnityEvent OnMedKitPickUp;
-    private bool _isMirrored = false;    
+    public UnityEvent OnMoonshinePickUp;
+    private bool _isMirrored = false;
     public IEnumerator MirrorDelay()
     {
         yield return new WaitForSeconds(1f);
@@ -27,5 +27,15 @@ public class MedKit : BuffItem
     private void Update()
     {
         MirrorItem();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerData playerData = collision.GetComponent<PlayerData>();
+        if (playerData != null)
+        {
+            OnMoonshinePickUp.Invoke();
+            Destroy(gameObject);
+
+        }
     }
 }

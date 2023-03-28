@@ -24,6 +24,8 @@ public class DoubleBarrel : Gun
     private float _soundRadius = 30f;
     public override float ShootSoundRadius => _soundRadius;
 
+    public override Animator Animator => throw new System.NotImplementedException();
+
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
