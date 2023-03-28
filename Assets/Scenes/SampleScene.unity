@@ -4891,6 +4891,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7039807304110255124, guid: d197f98a7f3d80e439256bf8cd1caa05, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039807304110255124, guid: d197f98a7f3d80e439256bf8cd1caa05, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.33
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5608437515350374438, guid: d197f98a7f3d80e439256bf8cd1caa05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d197f98a7f3d80e439256bf8cd1caa05, type: 3}
@@ -5313,6 +5321,10 @@ PrefabInstance:
       propertyPath: timeSlowPoints
       value: 
       objectReference: {fileID: 1948781223}
+    - target: {fileID: 8362230849503149928, guid: c93bb366cd4a53f4b9ce924e753e3e26, type: 3}
+      propertyPath: deathScreenSlider
+      value: 
+      objectReference: {fileID: 110472162}
     - target: {fileID: 8362230849717559296, guid: c93bb366cd4a53f4b9ce924e753e3e26, type: 3}
       propertyPath: m_RootOrder
       value: 6

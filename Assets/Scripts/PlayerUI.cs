@@ -58,10 +58,10 @@ public class PlayerUI : MonoBehaviour
     {
         if (player.CanBeResurrected())
         {
-            player.CanBeResurrected();
             Time.timeScale = 1f;
             Time.fixedDeltaTime = 0.02f;
             deathScreen.gameObject.SetActive(false);
+            deathScreenSlider.value = 10;
         }
         else
             continueButton.GetComponentInChildren<Text>().text = "Not enough moonshines!!";
@@ -71,18 +71,18 @@ public class PlayerUI : MonoBehaviour
     {
         if (deathScreen.gameObject.activeInHierarchy == true)
         {
-            while (deathScreenSlider.value>0)
-            {
-                StartCoroutine(DecreaseDeathSliderValue());
-                if (deathScreenSlider.value <= 0)
-                    ContinueGame();
-            }
+            StartCoroutine(DecreaseDeathSliderValue());
+            ContinueGame();
+            
         }
     }
     public IEnumerator DecreaseDeathSliderValue()
     {
-        yield return new WaitForSeconds(1f);
-        deathScreenSlider.value--;
+        while (deathScreenSlider.value > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            deathScreenSlider.value--;
+        }
     }
 }
 
