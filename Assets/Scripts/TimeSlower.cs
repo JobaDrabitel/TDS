@@ -7,6 +7,15 @@ public class TimeSlower : MonoBehaviour
     [SerializeField] private Player player;
     private bool _isTimeSlowed = false;
     private float _basefixedDeltaTime;
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Time.timeScale = 0.1f;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+            _isTimeSlowed = true;
+        }
+    }
     public void Start()
     {
         _basefixedDeltaTime = Time.fixedDeltaTime;
