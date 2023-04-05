@@ -34,13 +34,18 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
         if (collider.gameObject.GetComponent<Bullet>() !=null || (collider.gameObject.CompareTag("Obstacle")))
-            Ricochet(collider, rb);
+            Ricochet(collider);
+        if (collider.gameObject.GetComponent<LootBox>()!= null)
+        {
+            collider.gameObject.GetComponent<LootBox>().Break();
+            Destroy(gameObject);
+        }
     }
     private void Update()
     {
         lastVelocity = rb.velocity;
     }
-    public void Ricochet(Collision2D obstacle, Rigidbody2D rb)
+    public void Ricochet(Collision2D obstacle)
     {
         var temporalSpeed = lastVelocity.magnitude;
         Vector2 obstacleNormal = obstacle.contacts[0].normal;

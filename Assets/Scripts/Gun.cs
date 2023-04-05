@@ -18,8 +18,8 @@ public abstract class Gun : Weapon, IShootable
     {
         if (bullets >= MagasinSize - Ammo)
         {
-            AddAmmo(MagasinSize - Ammo);
             bullets -= MagasinSize - Ammo;
+            AddAmmo(MagasinSize - Ammo);
         }
         else
         {

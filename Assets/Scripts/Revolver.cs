@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Revolver : Gun
 {
+    [SerializeField] private AudioClip[] shotSounds;
+    [SerializeField] private AudioClip[] reloadSounds;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Sprite spriteEquiped;
     [SerializeField] private Sprite spriteOnGround;
@@ -49,6 +51,7 @@ public class Revolver : Gun
                 _animator.Play("Revolver Shoot");
                 _animator.SetBool("isShooting", true);
                 _animator.SetBool("isShooting", false);
+                _audioSource.clip = shotSounds[Random.Range(0, shotSounds.Length)];
                 _audioSource.Play();
                 StartCoroutine(CreateShootSound());
                 _readyForShoot = false;
@@ -90,5 +93,11 @@ public class Revolver : Gun
         else
              _spriteRenderer.sprite = spriteOnGround;
 
+    }
+    public override int Reload(int bullets)
+    {
+        _audioSource.clip = reloadSounds[Random.Range(0, reloadSounds.Length)];
+        _audioSource.Play();
+        return base.Reload(bullets);
     }
 }

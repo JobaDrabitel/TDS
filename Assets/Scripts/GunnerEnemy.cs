@@ -7,13 +7,18 @@ using UnityEngine.Events;
 public class GunnerEnemy : Enemy, IKillable
 {
     [SerializeField] private Rigidbody2D _rb;
-    [SerializeField] private int _health = 10;
     [SerializeField] private Weapon _weapon;
     [SerializeField] private Transform[] aim;
+    private SpriteRenderer _spriteRenderer;
+    private Sprite _sprite;
     private float _visionRange = 50f;
     public override float VisionRange => _visionRange;
     private float _attackRange;
     public override float AttackRange => _attackRange;
+
+    public override Sprite Sprite => _sprite;
+
+    public override SpriteRenderer SpriteRenderer => _spriteRenderer;
 
     private int _bullets = 10;
     private AIDestinationSetter _AI;
@@ -24,9 +29,8 @@ public class GunnerEnemy : Enemy, IKillable
     private StunnedUnit _stunnedUnit;
     private void Start()
     {
-        //Weapon weapon = GetComponentInChildren<Weapon>();
-        //if(weapon!=null)
-        //    _weapon = weapon;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _sprite = _spriteRenderer.sprite;
         _stunnedUnit = GetComponent<StunnedUnit>();
         _attackRange = _visionRange;
         _rb = gameObject.GetComponent<Rigidbody2D>();

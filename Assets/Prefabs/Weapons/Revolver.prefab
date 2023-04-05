@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 4037105890510276613}
   - component: {fileID: -8778782762763374988}
   - component: {fileID: -4004511709628521192}
+  - component: {fileID: -4522087149652285848}
   m_Layer: 7
   m_Name: Revolver
   m_TagString: Untagged
@@ -210,7 +211,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0365330c5b9b93e4b9c08c67fa7e29a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f3cde4fec46c294e80ac12f362d0767, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -233,9 +234,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77571bd4f71e6e418cb118d4d7d0467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shotSounds:
+  - {fileID: 8300000, guid: 0d95c2b2470e5594698dc35a3c8893ad, type: 3}
+  - {fileID: 8300000, guid: f1551ab6a4c9b7a499789a62f0132d41, type: 3}
+  - {fileID: 8300000, guid: 56bd13843de90d540bd9ed5d5daef1a9, type: 3}
+  reloadSounds:
+  - {fileID: 8300000, guid: c886a231bb4c4f14eb4c9206f6b75c80, type: 3}
   bulletPrefab: {fileID: 4599852574004686568, guid: 19cb2b2cf1bf5fc45945ad805921ee1f, type: 3}
   spriteEquiped: {fileID: -309131109, guid: 4949fcaa76f23404d87a6efd861c699d, type: 3}
-  spriteOnGround: {fileID: 21300000, guid: 0365330c5b9b93e4b9c08c67fa7e29a8, type: 3}
+  spriteOnGround: {fileID: 21300000, guid: 9f3cde4fec46c294e80ac12f362d0767, type: 3}
   _shootSoundArea: {fileID: 6377595697548951250, guid: ef0c5611ab8b98e40ab2df8d8b9d1f15, type: 3}
 --- !u!60 &-8778782762763374988
 PolygonCollider2D:
@@ -254,7 +261,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.66, y: 7}
+    oldSize: {x: 1.5, y: 2}
     newSize: {x: 0.7, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -314,7 +321,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f1551ab6a4c9b7a499789a62f0132d41, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -400,3 +407,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &-4522087149652285848
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037105890510276612}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 937653f7c36bf9a4a87f244a273de1bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

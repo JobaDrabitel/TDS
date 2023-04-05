@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class DoubleBarrel : Gun
 {
+    [SerializeField] private AudioClip[] shotSounds;
+    [SerializeField] private AudioClip[] reloadSounds;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Sprite spriteEquiped;
     [SerializeField] private Sprite spriteOnGround;
+    private AudioSource _audioSource;
     private SpriteRenderer _spriteRenderer;
     private int _bulletsInClip = 2;
     private int _magasinSize = 2;
@@ -28,6 +31,7 @@ public class DoubleBarrel : Gun
 
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _bullet = bulletPrefab.GetComponent<Bullet>();
         _shootSoundArea.gameObject.SetActive(false);
@@ -47,6 +51,8 @@ public class DoubleBarrel : Gun
                 }
                 Debug.Log("Бам!");
                 StartCoroutine(CreateShootSound());
+                _audioSource.clip = shotSounds[Random.Range(0, shotSounds.Length)];
+                _audioSource.Play();
                 _readyForShoot = false;
                 StartCoroutine(ShootDelay());
             }
@@ -64,7 +70,7 @@ public class DoubleBarrel : Gun
     private IEnumerator CreateShootSound()
     {
         _shootSoundArea.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return null;
         _shootSoundArea.gameObject.SetActive(false);
     }
     private IEnumerator ShootDelay()
@@ -85,5 +91,11 @@ public class DoubleBarrel : Gun
         else
             _spriteRenderer.sprite = spriteOnGround;
 
+    }
+    public override int Reload(int bullets)
+    {
+        _audioSource.clip = reloadSounds[Random.Range(0, reloadSounds.Length)];
+        _audioSource.Play();
+        return base.Reload(bullets);
     }
 }

@@ -13,6 +13,8 @@ public class Knife : MeleeWeapon
     private float _attackDelay = 1.5f;
     private bool _readyToAttack = true;
     private readonly int _ammo = 1;
+    private float _attackDuration = 0.3f;
+    public override float AttackDuration => _attackDuration;
     public override float AttackRange => _attackRange;
 
     public override int Ammo => _ammo;

@@ -19,6 +19,7 @@ public class Player : Unit
     private float _attackRange;
     private bool _isInvulnerable = false;
     private StunnedUnit _stunnedUnit;
+    private Sprite _sprite;
     public float AttackRange => _attackRange;
     [SerializeField] private Transform[] attackPoints;
     [SerializeField] private PlayerUI playerUI;
@@ -29,8 +30,15 @@ public class Player : Unit
     public int Bullets { get => _bulletsAmount; }
     public PlayerData PlayerData => playerData;
 
+    public override Sprite Sprite => _sprite;
+
+    public override SpriteRenderer SpriteRenderer => _spriteRenderer;
+
+    private SpriteRenderer _spriteRenderer;
     private void Start()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _sprite = _spriteRenderer.sprite;
         _stunnedUnit = GetComponent<StunnedUnit>();
         playerUI.SetTimeSlowPoints(TimeSlowPoints);
         _attackRange = _currentWeapon.GetComponent<MeleeWeapon>().AttackRange;
@@ -126,8 +134,13 @@ public class Player : Unit
     }
     public void IncreaseTimeSlowPoints(int value)
     {
+        if (value < 0)
+            return;
         _timeSlowPoints+=value;
+        if (_timeSlowPoints > 100)
+            _timeSlowPoints=100;
         playerUI.SetTimeSlowBar();
+        playerUI.SetTimeSlowPoints(TimeSlowPoints);
     }
 
     private void PickUpWeapon()
@@ -167,27 +180,4 @@ public class Player : Unit
     public void OnPickUpButtonClick() => PickUpWeapon();
     public void OnSaveButtonClick() => SaveManagerController.SavePlayer(playerData);
     public void OnLoadButtonClick() => playerData.LoadPlayer();
-    public void OnThrowButtonCLick() => ThrowWeapon();
-    public void ThrowWeapon()
-    {
-        float force = 10f;
-        GameObject weapon = _currentWeapon.gameObject;
-        Transform weaponSpawnPoint = attackPoints[0];
-        weapon.transform.parent = null;
-        weapon.GetComponent<Collider2D>().enabled = true;
-        weapon.GetComponent<Collider2D>().isTrigger = false;
-        Rigidbody2D rb = weapon.GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.forward * force, ForceMode2D.Impulse);
-        StartCoroutine(Rotation(rb));
-    }
-    private IEnumerator Rotation(Rigidbody2D rb)
-    {
-        float rotation = 50f;
-        while (true)
-        {
-            rb.transform.Rotate(Vector3.up, rotation * Time.deltaTime);
-            yield return null;
-        }
-    }
-
 }

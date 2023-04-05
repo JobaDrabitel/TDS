@@ -14,6 +14,9 @@ public class KniferEnemy : Enemy
     [SerializeField] private Transform[] aim;
     private float _visionRange = 50f;
     public override float VisionRange => _visionRange;
+
+    public override SpriteRenderer SpriteRenderer => _spriteRenderer;
+    private SpriteRenderer _spriteRenderer;
     private int _bullets = 10;
     private AIDestinationSetter _AI;
     [SerializeField] private AIPath _aiPath;

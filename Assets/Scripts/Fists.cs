@@ -13,6 +13,9 @@ public class Fists : MeleeWeapon
     private float _attackDelay = 1.5f;
     private bool _readyToAttack = true;
     private readonly int _ammo = 1;
+   private float _attackDuration = 0.2f;
+    public override float AttackDuration => _attackDuration; 
+
     public override float AttackRange => _attackRange;
 
     public override int Ammo => _ammo;
@@ -23,6 +26,7 @@ public class Fists : MeleeWeapon
     public override bool ReadyToAttack { get => _readyToAttack; set => _readyToAttack = value; }
 
     public override Animator Animator => throw new System.NotImplementedException();
+
 
     private void Start()
     {
