@@ -9,7 +9,7 @@ public class DragonSlayer : MeleeWeapon
     [SerializeField] private Sprite attackSprite;
     private SpriteRenderer _spriteRenderer;
     private GameObject _target;
-    private float _attackRange = 0.5f;
+    private float _attackRange = 0.005f;
     private int _attackDamage = 100;
     private float _attackDelay = 1.5f;
     private bool _readyToAttack = true;

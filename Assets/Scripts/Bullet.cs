@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 public class Bullet : MonoBehaviour
 {
@@ -27,13 +27,18 @@ public class Bullet : MonoBehaviour
         {
             collider.gameObject.GetComponent<Unit>().Die();
             Destroy(gameObject);
+            if (_isPlayer)
+                PlayerData.AddPoints(multiplier);
         }
         else if (collider.gameObject.GetComponent<Weapon>() != null && collider.gameObject.GetComponentInParent<Unit>() != null)
         {
             collider.gameObject.transform.parent.GetComponent<Unit>().Die();
             Destroy(gameObject);
+            if (_isPlayer)
+                PlayerData.AddPoints(multiplier);
+
         }
-        if (collider.gameObject.GetComponent<Bullet>() !=null || (collider.gameObject.CompareTag("Obstacle")))
+            if (collider.gameObject.GetComponent<Bullet>() !=null || (collider.gameObject.CompareTag("Obstacle")))
             Ricochet(collider);
         if (collider.gameObject.GetComponent<LootBox>()!= null)
         {

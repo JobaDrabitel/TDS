@@ -15,6 +15,7 @@ public abstract class MeleeWeapon : Weapon
     }
     public virtual void MeleeAttack(Transform[] firepoint, float range, int damage, float delay)
     {
+        int targetsAround = 0;
         if (ReadyToAttack)
         {
             Collider2D[] targetsInRange = Physics2D.OverlapCircleAll(firepoint[0].position, range);
@@ -24,12 +25,14 @@ public abstract class MeleeWeapon : Weapon
                     if (target.GetComponent<Unit>() != null && gameObject.transform.parent.gameObject != target.gameObject)
                     {
                         target.GetComponent<Unit>().Die();
+                        targetsAround++;
                         ReadyToAttack = false;
                         Debug.Log("Õ€¿");
                     }
                     if (target.GetComponent<LootBox>() != null)
                         target.GetComponent<LootBox>().Break();
                 }
+            PlayerData.AddPoints(targetsAround);
             StartCoroutine(DelayAttack(delay));
         }
         else

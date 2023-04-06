@@ -22,6 +22,7 @@ public class GunnerEnemy : Enemy, IKillable
 
     private int _bullets = 10;
     private AIDestinationSetter _AI;
+    public AIDestinationSetter AI;
     [SerializeField] private AIPath _aiPath;
     private float _speed = 5f;
     private Vector2 _lookDirection;

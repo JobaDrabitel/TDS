@@ -91,7 +91,7 @@ public class PlayerUI : MonoBehaviour
     {
         playerScore.text = player.PlayerData.LevelPoints.ToString();
     }
-    public void OnExitButtonClick() => SceneManager.LoadScene(0);
+    public void OnExitButtonClick() => SceneManager.LoadScene(0); 
 }
 
    

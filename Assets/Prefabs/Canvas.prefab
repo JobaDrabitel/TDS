@@ -282,6 +282,7 @@ MonoBehaviour:
   deathScreen: {fileID: 0}
   continueButton: {fileID: 0}
   deathScreenSlider: {fileID: 0}
+  playerScore: {fileID: 0}
 --- !u!1 &3287952875017298363
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -379.6134, y: 77.621796}
+  m_AnchoredPosition: {x: -379.6134, y: 77.621826}
   m_SizeDelta: {x: 138.4017, y: 125.0444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3287952875220159169
@@ -1228,7 +1229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -228.6659, y: 77.192444}
+  m_AnchoredPosition: {x: -228.6659, y: 77.192505}
   m_SizeDelta: {x: 139.6379, y: 125.9023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3287952875995880605
@@ -1361,7 +1362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -77.2, y: 77.83}
+  m_AnchoredPosition: {x: -77.2, y: 77.829956}
   m_SizeDelta: {x: 141.6909, y: 125.4616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3287952876274332419

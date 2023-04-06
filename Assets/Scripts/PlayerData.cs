@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerData : MonoBehaviour
 {
@@ -10,12 +9,18 @@ public class PlayerData : MonoBehaviour
     private int currentLevel = 1;
     private int _moonshines = 0;
     private int _usedMoonshines = 0;
+    private PlayerUI playerUI;
+    public static UnityEvent PointsChanged = new UnityEvent();
     public int LevelPoints { get => _levelPoints; }
     public int TotalPoints { get => _totalPoints; }
     public int CurrentLevel { get => currentLevel; }
     public int Moonshines { get => _moonshines; }
     public int UsedMoonshines { get => _usedMoonshines; }
-
+    private void Start()
+    {
+        playerUI = GetComponent<PlayerUI>();
+        PointsChanged.AddListener(playerUI.SetPlayerScore);
+    }
     public void SavePlayer()
     {
         SaveManagerController.SavePlayer(this);
@@ -30,6 +35,7 @@ public class PlayerData : MonoBehaviour
     public static int AddPoints(int multiplier)
     {
         _levelPoints += 100 * multiplier;
+        PointsChanged.Invoke();
         return _levelPoints;
     }
     public int SumPoints()

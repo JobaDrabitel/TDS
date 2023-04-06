@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2e1ea65d4cf7f47ae5bb9543cab1c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteEquiped: {fileID: 0}
+  spriteEquiped: {fileID: 21300000, guid: dc66fb8d3fe59444785e81c694c6b53e, type: 3}
   spriteOnGround: {fileID: 21300000, guid: 4ef30cf68fa92c345b41b506f80911a1, type: 3}
 --- !u!60 &4400718675032662068
 PolygonCollider2D:
