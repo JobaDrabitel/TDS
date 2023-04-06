@@ -10,6 +10,7 @@ public class PlayerData : MonoBehaviour
     private int currentLevel = 1;
     private int _moonshines = 0;
     private int _usedMoonshines = 0;
+    public int LevelPoints { get => _levelPoints; }
     public int TotalPoints { get => _totalPoints; }
     public int CurrentLevel { get => currentLevel; }
     public int Moonshines { get => _moonshines; }
@@ -29,7 +30,6 @@ public class PlayerData : MonoBehaviour
     public static int AddPoints(int multiplier)
     {
         _levelPoints += 100 * multiplier;
-        Bullet.Multiplier = 0;
         return _levelPoints;
     }
     public int SumPoints()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Canvas deathScreen;
     [SerializeField] private Button continueButton;
     [SerializeField] private Slider deathScreenSlider;
+    [SerializeField] private Text playerScore;
     private Weapon _playerWeapon;
 
 
@@ -25,6 +27,7 @@ public class PlayerUI : MonoBehaviour
         SetTimeSlowPoints(player.TimeSlowPoints);
         SetBullets();
         SetTimeSlowBar();
+        SetPlayerScore();
     }
  
     public void SetPlayerWeapon() => _playerWeapon = player.CurrentWeapon.GetComponent<Weapon>();
@@ -84,6 +87,11 @@ public class PlayerUI : MonoBehaviour
             deathScreenSlider.value--;
         }
     }
+    public void SetPlayerScore()
+    {
+        playerScore.text = player.PlayerData.LevelPoints.ToString();
+    }
+    public void OnExitButtonClick() => SceneManager.LoadScene(0);
 }
 
    

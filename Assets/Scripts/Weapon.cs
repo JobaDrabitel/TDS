@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     public abstract int Ammo { get; }
+    public bool IsPlayer { get; private set; }
     public abstract Animator Animator { get; }
     public abstract void Attack(Transform[] firepoint);
     public virtual Weapon SetParentForWeapon(GameObject weapon, Transform transform)
@@ -14,8 +15,9 @@ public abstract class Weapon : MonoBehaviour
         Vector3 offset = GetOffset(transform);
         weapon.transform.position = transform.position + offset; // устанавливаем локальную позицию с учетом смещения
         weapon.transform.localRotation = spawnRotation;
-        weapon.GetComponent<Collider2D>().enabled = false;
+        weapon.GetComponent<Collider2D>().isTrigger = false;
         SetSprite();
+        IsPlayer = weapon.transform.parent.GetComponent<Player>() != null ? true:false ;
         return weapon.GetComponent<Weapon>();
     }
     public abstract Vector3 GetOffset(Transform transform);
@@ -23,7 +25,7 @@ public abstract class Weapon : MonoBehaviour
     {
         weapon.transform.parent = null;
         SetSprite();
-        weapon.GetComponent<Collider2D>().enabled = true;
+        weapon.GetComponent<Collider2D>().isTrigger = true;
     }
     public abstract void SetSprite();
 }

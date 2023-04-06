@@ -38,7 +38,6 @@ public class GunnerEnemy : Enemy, IKillable
      }
     override public void Die()
     {
-        PlayerData.AddPoints(Bullet.Multiplier);
         Debug.Log("Я маслину поймал!");
         _weapon.SetNoParentForWeapon(_weapon.gameObject);
         Destroy(gameObject);

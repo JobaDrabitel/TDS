@@ -45,7 +45,7 @@ public class Revolver : Gun
         {
             if (_readyForShoot)
             {
-                _bullet.BulletSpawn(bulletPrefab, firepoint[0], false);
+                _bullet.BulletSpawn(bulletPrefab, firepoint[0], IsPlayer);
                 _bulletsInClip--;
                 Debug.Log("Бам!");
                 _animator.Play("Revolver Shoot");

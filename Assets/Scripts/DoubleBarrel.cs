@@ -16,7 +16,6 @@ public class DoubleBarrel : Gun
     private bool _readyForShoot = true;
     private float _shootDelay = 3f;
     private Bullet _bullet;
-    private bool _isEquiped;
     [SerializeField] private CircleCollider2D _shootSoundArea;
 
     public override int Ammo => _bulletsInClip;
@@ -46,7 +45,7 @@ public class DoubleBarrel : Gun
             {
                 foreach (Transform fire in firepoint)
                 {
-                    _bullet.BulletSpawn(bulletPrefab, fire, false);
+                    _bullet.BulletSpawn(bulletPrefab, fire, IsPlayer);
                     _bulletsInClip--;
                 }
                 Debug.Log("Бам!");

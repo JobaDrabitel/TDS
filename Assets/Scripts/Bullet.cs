@@ -10,8 +10,8 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 lastVelocity;
     private static bool _isPlayer = false;
-    private static int multiplier = 1;
-    public static int Multiplier { get => multiplier; set => multiplier = value; }
+    private  int multiplier = 1;
+    public int Multiplier { get => multiplier;}
 
     void Start()
     {

@@ -43,7 +43,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983228685883415654}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f8cd37127bd4122458d7c523b21a3bd9, type: 2}
   m_CullingMode: 0
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteEquiped: {fileID: 21300000, guid: 0aed19772dea0624c874d44bf03304b9, type: 3}
   spriteOnGround: {fileID: 21300000, guid: 5f21f584a350aef41bd9d8911709db14, type: 3}
+  attackSprite: {fileID: 0}
   _animator: {fileID: 983228685883415655}
 --- !u!212 &983228685883415648
 SpriteRenderer:
