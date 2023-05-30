@@ -40,7 +40,7 @@ public class KniferEnemy : Enemy
     override public void Die()
     {
         _weapon.SetNoParentForWeapon(_weapon.gameObject);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public override void Move(float movementspeed)

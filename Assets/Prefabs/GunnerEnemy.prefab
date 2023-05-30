@@ -24,7 +24,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4553674131410501780
 Transform:
   m_ObjectHideFlags: 0
@@ -295,6 +295,7 @@ MonoBehaviour:
   aim:
   - {fileID: 8637315293818777888}
   - {fileID: 4328820424049089202}
+  AI: {fileID: 0}
   _aiPath: {fileID: 4553674131410501797}
 --- !u!1001 &4553674132490412070
 PrefabInstance:

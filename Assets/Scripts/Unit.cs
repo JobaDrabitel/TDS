@@ -8,7 +8,7 @@ abstract public class Unit : MonoBehaviour, IKillable, IMovable
     public abstract SpriteRenderer SpriteRenderer { get; }
     virtual public void Die()
     {
-        Destroy(gameObject);
+       gameObject.SetActive(false);
     }
 
     public abstract void Move(float movementspeed);

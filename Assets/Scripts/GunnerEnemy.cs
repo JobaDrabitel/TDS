@@ -41,7 +41,7 @@ public class GunnerEnemy : Enemy, IKillable
     {
         Debug.Log("Я маслину поймал!");
         _weapon.SetNoParentForWeapon(_weapon.gameObject);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public override void Move(float movementspeed)
