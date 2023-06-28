@@ -7,13 +7,13 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Transform[] spawnpoints;
     [SerializeField] private GameObject[] enemies;
-    private float spawnDelay = 1f;
+    private float spawnDelay = 10f;
     private int spawnCount = 0;
 
     private void Start()
     {
         foreach (var enemy in enemies)
-            enemy.SetActive(false);
+            enemy.SetActive(true);
        StartCoroutine(SpawnEnemy());
     }
     private IEnumerator SpawnEnemy()
@@ -21,12 +21,15 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(spawnDelay);
-            var enemy = GetRandomEnemy();
-            enemy.SetActive(true);
-            enemy.GetComponent<GunnerEnemy>().AI.target = player.transform;
-            enemy.GetComponent<KniferEnemy>().AI.target = player.transform;
-            enemy.transform.parent = null;
             var spawnpoint = spawnpoints[Random.Range(0, spawnpoints.Length)];
+            var enemy = Instantiate(GetRandomEnemy(), spawnpoint);
+            enemy.SetActive(true);
+            try
+            {
+                enemy.GetComponent<GunnerEnemy>().AI.target = player.transform;
+            }
+            catch { }
+            enemy.transform.parent = null;
             enemy.transform.position = spawnpoint.transform.position;
             spawnCount++;
             if (spawnCount > enemies.Length * spawnCount + 1 && spawnDelay > 4f)

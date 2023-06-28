@@ -31,7 +31,7 @@ public class Player : Unit
     public PlayerData PlayerData => playerData;
 
     public override Sprite Sprite => _sprite;
-
+    public PlayerUI PlayerUI => playerUI;
     public override SpriteRenderer SpriteRenderer => _spriteRenderer;
 
     private SpriteRenderer _spriteRenderer;

@@ -18,7 +18,7 @@ public class PlayerData : MonoBehaviour
     public int UsedMoonshines { get => _usedMoonshines; }
     private void Start()
     {
-        playerUI = GetComponent<PlayerUI>();
+        playerUI = GetComponent<Player>().PlayerUI;
         PointsChanged.AddListener(playerUI.SetPlayerScore);
     }
     public void SavePlayer()
