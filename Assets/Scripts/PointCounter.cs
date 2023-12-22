@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class PointCounter
 {
-    //[SerializeField] private static PlayerData _playerData;
+	//[SerializeField] private static PlayerData _playerData;
 
 }

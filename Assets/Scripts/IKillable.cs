@@ -1,4 +1,4 @@
 interface IKillable
 {
-    void Die();
+	void Die();
 }
