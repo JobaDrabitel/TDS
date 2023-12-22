@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : Unit
 {
-    private Rigidbody2D _rb;
+    public UnityEvent PickUpWeaponEvent;
+    [SerializeField] private Rigidbody2D _rb;
     [SerializeField] PlayerData playerData;
     private Vector2 movement;
     [SerializeField] private Camera cam;
@@ -12,25 +14,36 @@ public class Player : Unit
     public static bool joystickDown = false;
     private int _bulletsAmount = 36;
     private int _timeSlowPoints = 100;
-    private int _health = 100;
-    private Vector2 position;
-    private Quaternion rotation;
+    private float _interctionRadius = 2f;
     private float _speed = 3f;
-    [SerializeField] private Transform attackPoint;
-    public float attackRange = 0.5f;
-    public LayerMask defaultLayer;
-    public int attackDamage = 20;
+    private float _attackRange;
+    private bool _isInvulnerable = false;
+    private StunnedUnit _stunnedUnit;
+    private Sprite _sprite;
+    public float AttackRange => _attackRange;
+    [SerializeField] private Transform[] attackPoints;
     [SerializeField] private PlayerUI playerUI;
-    public int Health => _health;
     [SerializeField] private Weapon _currentWeapon;
     public int TimeSlowPoints { get => _timeSlowPoints; }
-    public Transform AttackPoint { get => attackPoint; }
+    public Transform[] AttackPoint { get => attackPoints; }
     public Weapon CurrentWeapon { get => _currentWeapon; }   
     public int Bullets { get => _bulletsAmount; }
+    public PlayerData PlayerData => playerData;
 
+    public override Sprite Sprite => _sprite;
+    public PlayerUI PlayerUI => playerUI;
+    public override SpriteRenderer SpriteRenderer => _spriteRenderer;
+
+    private SpriteRenderer _spriteRenderer;
     private void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _sprite = _spriteRenderer.sprite;
+        _stunnedUnit = GetComponent<StunnedUnit>();
+        playerUI.SetTimeSlowPoints(TimeSlowPoints);
+        _attackRange = _currentWeapon.GetComponent<MeleeWeapon>().AttackRange;
+        _rb = gameObject.GetComponent<Rigidbody2D>();
+        PickUpWeaponEvent.AddListener(playerUI.SetPlayerWeapon);
     }
     private void Update()
     {
@@ -56,25 +69,38 @@ public class Player : Unit
         _rb.MovePosition(_rb.position + movement * movementSpeed * Time.fixedDeltaTime);
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public override void Die()
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (!_isInvulnerable)
         {
-            TakeDamage(Bullet._bulletDamage);
-            playerData.healthBar.SetHealth(_health);
+            gameObject.SetActive(false);
+            playerUI.ShowDeathScreen();
+            Debug.Log("Я не хочу умирать мама");
+        }
+        else
+        {
+            Debug.Log("Саки ракать");
         }
     }
-    public override void TakeDamage(int damage)
+    public bool CanBeResurrected()
     {
-        _health -= damage;
-        if (_health <= 0)
-            Kill();
+        if (playerData.Moonshines > playerData.UsedMoonshines)
+        {
+            gameObject.SetActive(true);
+            _isInvulnerable = true;
+            StartCoroutine(DisableInvulnerable());
+            playerData.DecreaseMoonshines();
+            playerUI.SetMoonshines();
+            return true;
+        }
+        else 
+            return false;
 
     }
-    public override void Kill()
+    private IEnumerator DisableInvulnerable()
     {
-        gameObject.SetActive(false);
-        Debug.Log("Я не хочу умирать мама");
+        yield return new WaitForSeconds(2f);
+        _isInvulnerable = false;
     }
     public void OnReloadButtonClick()
     {
@@ -91,22 +117,67 @@ public class Player : Unit
     }
     public void OnShootButton()
     {
-        _currentWeapon.Attack(attackPoint);
+        _currentWeapon.Attack(attackPoints);
         playerUI.SetBullets();
     }
     public void SetWeapon(Weapon weapon)
     {
         _currentWeapon = weapon;
+        _attackRange = _currentWeapon.GetComponent<MeleeWeapon>().AttackRange;
         playerUI.SetBullets();
     }
     public void DecreaseTimeSlowPoints()
     {
         _timeSlowPoints--;
         playerUI.SetTimeSlowBar();
+        playerUI.SetTimeSlowPoints(_timeSlowPoints);
     }
     public void IncreaseTimeSlowPoints(int value)
     {
+        if (value < 0)
+            return;
         _timeSlowPoints+=value;
+        if (_timeSlowPoints > 100)
+            _timeSlowPoints=100;
         playerUI.SetTimeSlowBar();
+        playerUI.SetTimeSlowPoints(TimeSlowPoints);
     }
+
+    private void PickUpWeapon()
+    { 
+        if (GetWeaponForPick() != null)
+        {
+            Weapon weaponForDrop = null;
+            if (_currentWeapon != null)
+                weaponForDrop = _currentWeapon;   
+            _currentWeapon = GetWeaponForPick();
+            _currentWeapon.SetParentForWeapon(_currentWeapon.gameObject, transform);
+            if (weaponForDrop != null)
+                  weaponForDrop.SetNoParentForWeapon(weaponForDrop.gameObject);
+            PickUpWeaponEvent.Invoke();
+        }
+    }
+    private Weapon GetWeaponForPick()
+    {
+        GameObject weapon = null;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _interctionRadius);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.GetComponent<Weapon>() != null)
+            {
+                if (collider.GetComponentInParent<Enemy>() == null && collider.GetComponentInParent<Player>() == null)
+                    weapon = collider.gameObject;
+                else
+                    continue;
+                if (weapon != null)
+                    return weapon.GetComponent<Weapon>();
+            }
+        }
+         return weapon!=null? weapon.GetComponent<Weapon>():null;
+    }
+   
+
+    public void OnPickUpButtonClick() => PickUpWeapon();
+    public void OnSaveButtonClick() => SaveManagerController.SavePlayer(playerData);
+    public void OnLoadButtonClick() => playerData.LoadPlayer();
 }

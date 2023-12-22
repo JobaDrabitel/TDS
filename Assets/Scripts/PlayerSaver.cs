@@ -10,9 +10,8 @@ public class PlayerSaver
     public float[] position;
   public PlayerSaver(PlayerData playerData)
     {
-        points = PlayerData.totalPoints;
-        currentLevel = playerData.currentLevel;
-        //position[0] = playerData.position.x;
-        //position[1] = playerData.position.y;
+        points = playerData.TotalPoints;
+        currentLevel = playerData.CurrentLevel;
+       
     }
 }

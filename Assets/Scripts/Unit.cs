@@ -3,13 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 abstract public class Unit : MonoBehaviour, IKillable, IMovable
-{
-
-    abstract public void TakeDamage(int damage);
-    virtual public void Kill()
+{ 
+    public abstract Sprite Sprite { get; }
+    public abstract SpriteRenderer SpriteRenderer { get; }
+    virtual public void Die()
     {
-        Destroy(gameObject);
+       gameObject.SetActive(false);
     }
 
     public abstract void Move(float movementspeed);
+    public virtual void SetAttackSprite(Sprite attackSprite, float duration)
+    {
+        SpriteRenderer.sprite = attackSprite;
+        StartCoroutine(SpriteChangeDelay(duration));
+    }
+    public virtual IEnumerator SpriteChangeDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SpriteRenderer.sprite = Sprite;
+    }
 }

@@ -4,24 +4,22 @@ using UnityEngine;
 
 public abstract class Gun : Weapon, IShootable
 {
-    public abstract Transform FirePoint { get; set; }
-
     public abstract int MagasinSize { get; }
     public abstract float ShootSoundRadius { get; }
 
-    public abstract void Shoot(Transform firePoint);
+    public abstract void Shoot(Transform[] firepoint);
 
     public abstract void AddAmmo(int value);
-    public override void Attack(Transform attackPoint)
+    public override void Attack(Transform[] firepoint)
     {
-        Shoot(attackPoint);
+        Shoot(firepoint);
     }
     public virtual int Reload(int bullets)
     {
         if (bullets >= MagasinSize - Ammo)
         {
-            AddAmmo(MagasinSize - Ammo);
             bullets -= MagasinSize - Ammo;
+            AddAmmo(MagasinSize - Ammo);
         }
         else
         {
@@ -31,4 +29,5 @@ public abstract class Gun : Weapon, IShootable
         Debug.Log("Reloading!");
         return bullets;
     }
+
 }

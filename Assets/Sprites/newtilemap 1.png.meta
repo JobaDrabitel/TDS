@@ -1,0 +1,1037 @@
+fileFormatVersion: 2
+guid: cda056d2f40aa814cbc9badb20551dd6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: newtilemap 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1530
+        width: 90
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e9fc2e1b9e2b8408879c0455598fa1
+      internalID: 1384864239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1520
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 071ff1921ebd42747b447e3d7bcdd07e
+      internalID: 1052720021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_2
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 1490
+        width: 90
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c8577790cc02e42ab148e28bc4d021
+      internalID: -1120313405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1520
+        width: 150
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3cffba7103d7424bac7e7ecd2422cfa
+      internalID: -744939593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_4
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1590
+        width: 70
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76645d84efbc83d48a015d5336779460
+      internalID: 1744145526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_5
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 1510
+        width: 20
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 998bba008ace7844ab9329a7f202501a
+      internalID: -1212069832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_6
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1510
+        width: 60
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0649a58ecfa2f56489e4186197bb6ba1
+      internalID: -133365219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1370
+        width: 90
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 203cfad37dcf2c8428cac4d74791c2ce
+      internalID: 161032603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_8
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1360
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4aaa99ed35511d41b32aeaff6b79299
+      internalID: -888197218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_9
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 1330
+        width: 90
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe199a8f1becfc54a86ad5d6fa27bdc4
+      internalID: -1527859121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_10
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1360
+        width: 150
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cdb2ddef8ea09e419fa738ab05f167a
+      internalID: -892960912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_11
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1430
+        width: 70
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a95c1c3e922d69942b208fe05f7ab446
+      internalID: 1381130588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_12
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 1350
+        width: 20
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f11a967ab46ed4f889c115e21912ff
+      internalID: 1441166720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_13
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1350
+        width: 60
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9ff389d68363143a4c7281063533f5
+      internalID: 80822687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1210
+        width: 90
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa328a95d36c95f418caa1d643a85d47
+      internalID: -2082836514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_15
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1200
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 086833c46e2ac0f4ab91d2685ee7e48f
+      internalID: 1204787297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_16
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 1170
+        width: 90
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb54211808d4aab4aa6e6074a02269bf
+      internalID: 1111573395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_17
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1200
+        width: 150
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e923a99162d3b5a4ab9c095ba78c39a0
+      internalID: -477869528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_18
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1270
+        width: 70
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02560aadcae6c4d4aa28d16cce2ca589
+      internalID: 1333493074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_19
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 1190
+        width: 20
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c88c08682710c704e9597fb01bcfaf1e
+      internalID: 918766553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_20
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1190
+        width: 60
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ad3cbd1bb5d634aadedd2c7eb58cd3
+      internalID: -155917402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 650
+        width: 300
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcbea0dd3d0895d4dbf2373ee88f69dd
+      internalID: -498396147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_22
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 870
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 135d207d2f225084f9a964d384bdf3db
+      internalID: -1867445404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_23
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 860
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ae7b26529a1614896ec06e6d25c749
+      internalID: 58457968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_24
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 470
+        width: 80
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e26fe81a21b2114690b8bf69f73d210
+      internalID: -1017171524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_25
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 800
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 204e1820da916344c90ae5695ee1c953
+      internalID: -921084658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_26
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 470
+        width: 70
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe4654a543e5efb48a6d70d2e770c60b
+      internalID: -2063439783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_27
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 470
+        width: 90
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4df548dd6218fa4aa395c1e18ffefba
+      internalID: 1788176874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_28
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 420
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6368414c423abcd419bef04d719b4343
+      internalID: 880236528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_29
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 430
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 629a0d057fb117a4e8c51f9f69609061
+      internalID: 909718745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_30
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 420
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8385871cadd192b43aef0602bd4917d0
+      internalID: 1043105342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_31
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 10
+        width: 70
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13a1389fa542cc544aec3465174f7afc
+      internalID: 2024201250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_32
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 400
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06696a2b78b9a3d40809f0a52232f977
+      internalID: -1096348579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10
+        width: 300
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9852acbd19169be4790d3f1aacf04a04
+      internalID: -60523923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_34
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 10
+        width: 70
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f849bffd0729641827baf362de6f0d
+      internalID: 1109469862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_35
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 370
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ad94859a5dbcc048b2a898e5d24e9bd
+      internalID: -676416083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_36
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 10
+        width: 100
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f10d174ce7a91f40a134ab6c93114ca
+      internalID: 2047176424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_37
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 10
+        width: 70
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 338bbc7c73f07194193af9b497f02f81
+      internalID: 1738969732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_38
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 290
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ea3c73d9e228934591d3a2a638af048
+      internalID: -2066853103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_39
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 10
+        width: 80
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8f931bd6f7df348ababc40a3605903
+      internalID: -486421883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newtilemap 1_40
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 10
+        width: 90
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f1be645b7fd9a34daadff7f4f28d063
+      internalID: -1326383091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      newtilemap 1_0: 1384864239
+      newtilemap 1_1: 1052720021
+      newtilemap 1_10: -892960912
+      newtilemap 1_11: 1381130588
+      newtilemap 1_12: 1441166720
+      newtilemap 1_13: 80822687
+      newtilemap 1_14: -2082836514
+      newtilemap 1_15: 1204787297
+      newtilemap 1_16: 1111573395
+      newtilemap 1_17: -477869528
+      newtilemap 1_18: 1333493074
+      newtilemap 1_19: 918766553
+      newtilemap 1_2: -1120313405
+      newtilemap 1_20: -155917402
+      newtilemap 1_21: -498396147
+      newtilemap 1_22: -1867445404
+      newtilemap 1_23: 58457968
+      newtilemap 1_24: -1017171524
+      newtilemap 1_25: -921084658
+      newtilemap 1_26: -2063439783
+      newtilemap 1_27: 1788176874
+      newtilemap 1_28: 880236528
+      newtilemap 1_29: 909718745
+      newtilemap 1_3: -744939593
+      newtilemap 1_30: 1043105342
+      newtilemap 1_31: 2024201250
+      newtilemap 1_32: -1096348579
+      newtilemap 1_33: -60523923
+      newtilemap 1_34: 1109469862
+      newtilemap 1_35: -676416083
+      newtilemap 1_36: 2047176424
+      newtilemap 1_37: 1738969732
+      newtilemap 1_38: -2066853103
+      newtilemap 1_39: -486421883
+      newtilemap 1_4: 1744145526
+      newtilemap 1_40: -1326383091
+      newtilemap 1_5: -1212069832
+      newtilemap 1_6: -133365219
+      newtilemap 1_7: 161032603
+      newtilemap 1_8: -888197218
+      newtilemap 1_9: -1527859121
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
