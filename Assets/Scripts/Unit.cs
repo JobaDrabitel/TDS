@@ -6,7 +6,7 @@ abstract public class Unit : MonoBehaviour, IKillable, IMovable
 {
 	public abstract Sprite Sprite { get; }
 	public abstract SpriteRenderer SpriteRenderer { get; }
-	virtual public void Die()
+	virtual public void TakeDamage()
 	{
 		gameObject.SetActive(false);
 	}

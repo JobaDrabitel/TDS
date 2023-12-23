@@ -41,7 +41,7 @@ public class KniferEnemy : Enemy
 		_AI = gameObject.GetComponent<AIDestinationSetter>();
 		StartCoroutine(CheckAimTarget());
 	}
-	override public void Die()
+	override public void TakeDamage()
 	{
 		_weapon.SetNoParentForWeapon(_weapon.gameObject);
 		gameObject.SetActive(false);
@@ -69,20 +69,20 @@ public class KniferEnemy : Enemy
 		}
 	}
 
-	public async override void LookForward()
+	public override void LookForward()
 	{
 		_lookDirection = _aiPath.desiredVelocity;
 		float lookAngle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 90f;
 		_rb.rotation = lookAngle;
 	}
 
-	public async override void LookAtTarget()
+	public override void LookAtTarget()
 	{
 		_lookDirection = (_AI.target.transform.position - transform.position).normalized;
 		float lookAngle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 90f;
 		_rb.rotation = lookAngle;
 	}
-	public async override void AttackTarget()
+	public override void AttackTarget()
 	{
 		_weapon.Attack(aim);
 		if (_weapon.Ammo <= 0)

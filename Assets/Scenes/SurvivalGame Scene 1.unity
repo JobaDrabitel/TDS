@@ -1591,6 +1591,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4553674133320486763, guid: 5432eb1c27e59554d8294f4b047f8801, type: 3}
   m_PrefabInstance: {fileID: 570605982}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &201812925 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4553674131410501772, guid: 5432eb1c27e59554d8294f4b047f8801, type: 3}
+  m_PrefabInstance: {fileID: 570605982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201812921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &205439171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,6 +2007,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3.907
       objectReference: {fileID: 0}
+    - target: {fileID: 4553674131410501787, guid: 5432eb1c27e59554d8294f4b047f8801, type: 3}
+      propertyPath: AI
+      value: 
+      objectReference: {fileID: 1533534001}
     - target: {fileID: 4553674133320486763, guid: 5432eb1c27e59554d8294f4b047f8801, type: 3}
       propertyPath: m_Name
       value: GunnerEnemy (1)
@@ -4608,6 +4623,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3.907
       objectReference: {fileID: 0}
+    - target: {fileID: 4553674131410501787, guid: 5432eb1c27e59554d8294f4b047f8801, type: 3}
+      propertyPath: AI
+      value: 
+      objectReference: {fileID: 201812925}
     - target: {fileID: 4553674133320486763, guid: 5432eb1c27e59554d8294f4b047f8801, type: 3}
       propertyPath: m_Name
       value: GunnerEnemy (2)
@@ -6256,6 +6275,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 521522070693542064, guid: d197f98a7f3d80e439256bf8cd1caa05, type: 3}
   m_PrefabInstance: {fileID: 1948204183}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &794408364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4894475000470525689, guid: d197f98a7f3d80e439256bf8cd1caa05, type: 3}
+  m_PrefabInstance: {fileID: 1948204183}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794408360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &834009499
 GameObject:
   m_ObjectHideFlags: 0
@@ -11997,6 +12027,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4553674133320486763, guid: 5432eb1c27e59554d8294f4b047f8801, type: 3}
   m_PrefabInstance: {fileID: 232219149}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1533534001 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4553674131410501772, guid: 5432eb1c27e59554d8294f4b047f8801, type: 3}
+  m_PrefabInstance: {fileID: 232219149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533533997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1550998983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13152,6 +13193,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703734492}
   m_CullTransparentMesh: 1
+--- !u!114 &1715969786 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4553674131410501772, guid: 5432eb1c27e59554d8294f4b047f8801, type: 3}
+  m_PrefabInstance: {fileID: 4553674133397704378}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1720316225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14935,6 +14987,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3.907
       objectReference: {fileID: 0}
+    - target: {fileID: 6571728893586755643, guid: d197f98a7f3d80e439256bf8cd1caa05, type: 3}
+      propertyPath: AI
+      value: 
+      objectReference: {fileID: 794408364}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16508,6 +16564,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3.907
       objectReference: {fileID: 0}
+    - target: {fileID: 4553674131410501787, guid: 5432eb1c27e59554d8294f4b047f8801, type: 3}
+      propertyPath: AI
+      value: 
+      objectReference: {fileID: 1715969786}
     - target: {fileID: 4553674133320486763, guid: 5432eb1c27e59554d8294f4b047f8801, type: 3}
       propertyPath: m_Name
       value: GunnerEnemy
@@ -16537,6 +16597,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e91d922e16c72144d9c11038d890d0fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5596673485634442226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17034037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793f93942b30568419e1387883afc4da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6212324376562746793
@@ -16616,9 +16688,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 521522069328820092, guid: d197f98a7f3d80e439256bf8cd1caa05, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 521522070693542064, guid: d197f98a7f3d80e439256bf8cd1caa05, type: 3}
       propertyPath: m_Name
       value: KniferEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 521522070693542064, guid: d197f98a7f3d80e439256bf8cd1caa05, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 521522070693542068, guid: d197f98a7f3d80e439256bf8cd1caa05, type: 3}
       propertyPath: m_RootOrder
@@ -16817,7 +16897,10 @@ PrefabInstance:
     - {fileID: 5596673485634442217, guid: 0f7ec788acdf6a442b14a37b842e3574, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7867412108990118314, guid: 0f7ec788acdf6a442b14a37b842e3574, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5596673485634442226}
   m_SourcePrefab: {fileID: 100100000, guid: 0f7ec788acdf6a442b14a37b842e3574, type: 3}
 --- !u!1001 &8362230849224038528
 PrefabInstance:

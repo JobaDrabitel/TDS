@@ -9,7 +9,7 @@ public class DragonSlayer : MeleeWeapon
 	[SerializeField] private Sprite attackSprite;
 	private SpriteRenderer _spriteRenderer;
 	private GameObject _target;
-	private float _attackRange = 0.005f;
+	private float _attackRange = 3f;
 	private int _attackDamage = 100;
 	private float _attackDelay = 1.5f;
 	private bool _readyToAttack = true;
@@ -54,19 +54,19 @@ public class DragonSlayer : MeleeWeapon
 	{
 		if (ReadyToAttack)
 		{
-			Collider2D[] targetsInRange = Physics2D.OverlapCircleAll(firepoint[0].position, range);
+			Collider2D[] targetsInRange = Physics2D.OverlapCircleAll(gameObject.transform.parent.gameObject.transform.position, range);
 			if (targetsInRange.Length > 0)
 				foreach (Collider2D target in targetsInRange)
 				{
-					if (target.GetComponent<Unit>() != null && gameObject.transform.parent.gameObject != target.gameObject)
+					if (target.GetComponent<Unit>() != null && gameObject.transform.parent.gameObject != target.gameObject && !target.isTrigger)
 					{
-						target.GetComponent<Unit>().Die();
+						target.GetComponent<Unit>().TakeDamage();
 						ReadyToAttack = false;
 						Debug.Log("Õ€¿");
 					}
 					if (target.GetComponent<Bullet>() != null)
 					{
-						Destroy(target);
+						Destroy(target.gameObject);
 						ReadyToAttack = false;
 					}
 					if (target.GetComponent<LootBox>() != null)

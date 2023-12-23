@@ -25,22 +25,22 @@ public class Bullet : MonoBehaviour
 	{
 		if (collider.gameObject.GetComponent<Unit>() != null)
 		{
-			collider.gameObject.GetComponent<Unit>().Die();
+			collider.gameObject.GetComponent<Unit>().TakeDamage();
 			Destroy(gameObject);
 			if (_isPlayer)
 				PlayerData.AddPoints(multiplier);
 		}
 		else if (collider.gameObject.GetComponent<Weapon>() != null && collider.gameObject.GetComponentInParent<Unit>() != null)
 		{
-			collider.gameObject.transform.parent.GetComponent<Unit>().Die();
+			collider.gameObject.transform.parent.GetComponent<Unit>().TakeDamage();
 			Destroy(gameObject);
 			if (_isPlayer)
 				PlayerData.AddPoints(multiplier);
 
 		}
-		if (collider.gameObject.GetComponent<Bullet>() != null || (collider.gameObject.CompareTag("Obstacle")))
+		else if (collider.gameObject.GetComponent<Bullet>() != null || (collider.gameObject.CompareTag("Obstacle")))
 			Ricochet(collider);
-		if (collider.gameObject.GetComponent<LootBox>() != null)
+		else if (collider.gameObject.GetComponent<LootBox>() != null)
 		{
 			collider.gameObject.GetComponent<LootBox>().Break();
 			Destroy(gameObject);

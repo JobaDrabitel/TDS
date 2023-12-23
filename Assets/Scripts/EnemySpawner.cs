@@ -29,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
 			}
 			catch (Exception ex)
 			{
+				Debug.LogException(ex);
 				enemy.GetComponent<KniferEnemy>().AI.target = player.transform;
 			}
 			enemy.transform.parent = null;

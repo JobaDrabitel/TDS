@@ -24,7 +24,7 @@ public abstract class MeleeWeapon : Weapon
 				{
 					if (target.GetComponent<Unit>() != null && gameObject.transform.parent.gameObject != target.gameObject)
 					{
-						target.GetComponent<Unit>().Die();
+						target.GetComponent<Unit>().TakeDamage();
 						targetsAround++;
 						ReadyToAttack = false;
 						Debug.Log("Õ€¿");

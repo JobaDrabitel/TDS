@@ -41,7 +41,7 @@ public class GunnerEnemy : Enemy, IKillable
 		_AI = gameObject.GetComponent<AIDestinationSetter>();
 		StartCoroutine(CheckAimTarget());
 	}
-	override public void Die()
+	override public void TakeDamage()
 	{
 		Debug.Log("Я маслину поймал!");
 		_weapon.SetNoParentForWeapon(_weapon.gameObject);

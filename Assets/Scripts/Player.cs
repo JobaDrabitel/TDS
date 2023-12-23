@@ -69,7 +69,7 @@ public class Player : Unit
 		_rb.MovePosition(_rb.position + movement * movementSpeed * Time.fixedDeltaTime);
 
 	}
-	public override void Die()
+	public override void TakeDamage()
 	{
 		if (!_isInvulnerable)
 		{

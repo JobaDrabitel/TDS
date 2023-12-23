@@ -39,7 +39,7 @@ public class DoubleBarrel : Gun
 	}
 	public override void Shoot(Transform[] firepoint)
 	{
-		if (_bulletsInClip > 0)
+		if (_bulletsInClip > 0 && _bullet!=null)
 		{
 			if (_readyForShoot)
 			{
